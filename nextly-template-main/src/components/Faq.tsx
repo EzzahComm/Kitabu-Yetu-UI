@@ -43,7 +43,7 @@ const faqdata = [
   {
     question: "Do you hold our money?",
     answer:
-      "That is your group's choice, and either way the money stays yours. Most groups collect straight into their own M-Pesa PayBill or bank account, so Kitabu Yetu never touches the funds — it records and reconciles them. A group without a PayBill of its own can collect through Kitabu Yetu's instead, where each group's funds are held separately and settled to the group's account. In both cases only the signatories your group has appointed can move money, and every shilling in and out is posted to your ledger.",
+      "It depends on the plan. On Starter, Growth and Premium, contributions are collected through the Kitabu Yetu PayBill, tracked to the member and the group that sent them, and settled to your group's own bank account. On Enterprise, the group collects into its own PayBill. Either way the books stay yours: every shilling is tracked to a member, only the signatories your group has appointed can approve a payout, and every movement in and out is posted to your ledger with an audit trail.",
   },
   {
     question: "Can I bring my existing records?",
