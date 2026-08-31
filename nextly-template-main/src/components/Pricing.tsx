@@ -15,6 +15,8 @@ interface Plan {
 
 interface PricingProduct {
   product: string;
+  /** Anchor id, so the Pricing menu can link straight to this product. */
+  anchor: string;
   desc: string;
   plans: Plan[];
 }
@@ -85,7 +87,7 @@ export const Pricing = () => {
       </p>
 
       {pricingdata.map((item) => (
-        <div key={item.product} className="mb-16 last:mb-0">
+        <div key={item.product} id={item.anchor} className="mb-16 last:mb-0">
           <div className="max-w-2xl mb-10">
             <h3 className="text-2xl font-bold leading-snug tracking-tight text-gray-800 lg:text-3xl dark:text-white">
               {item.product}
@@ -109,6 +111,7 @@ export const Pricing = () => {
 const pricingdata: PricingProduct[] = [
   {
     product: "Kitabu Yetu",
+    anchor: "kitabu-yetu",
     desc: "The full book: double-entry accounting, contributions, loans, M-Pesa collection and reconciliation, member records and reporting — with SMS included.",
     plans: [
       {
@@ -160,6 +163,7 @@ const pricingdata: PricingProduct[] = [
   },
   {
     product: "Chama Reminder",
+    anchor: "chama-reminder",
     desc: "Just the messaging. Keep your member list, send contribution reminders, birthday greetings and group announcements by SMS — no ledger, no accounting to set up. Start here and move to Kitabu Yetu whenever your group is ready; your members come with you.",
     plans: [
       {

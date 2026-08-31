@@ -2,7 +2,13 @@
 import Link from "next/link";
 import ThemeChanger from "./DarkSwitch";
 import { BrandLogo } from "./BrandLogo";
-import { Disclosure } from "@headlessui/react";
+import {
+  Disclosure,
+  Popover,
+  PopoverButton,
+  PopoverPanel,
+} from "@headlessui/react";
+import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { navigation } from "./navigation";
 
 export const Navbar = () => {
@@ -57,9 +63,16 @@ export const Navbar = () => {
                 <Disclosure.Panel className="flex flex-wrap w-full my-5 lg:hidden">
                   <>
                     {navigation.map((item) => (
-                      <Link key={item.href} href={item.href} className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none">
-                          {item.name}
-                      </Link>
+                      <div key={item.href} className="w-full">
+                        <Link href={item.href} className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none">
+                            {item.name}
+                        </Link>
+                        {item.children?.map((child) => (
+                          <Link key={child.href} href={child.href} className="w-full px-4 py-2 text-sm text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none">
+                              {child.name}
+                          </Link>
+                        ))}
+                      </div>
                     ))}
                     <Link href="/contact" className="w-full px-6 py-2 mt-3 text-center text-white bg-indigo-600 rounded-md lg:ml-5">         
                         Start a group
@@ -75,9 +88,25 @@ export const Navbar = () => {
           <ul className="items-center justify-end flex-1 pt-6 list-none lg:pt-0 lg:flex">
             {navigation.map((menu) => (
               <li className="mr-1 nav__item xl:mr-3" key={menu.href}>
-                <Link href={menu.href} className="inline-block px-2 py-2 text-base font-normal text-gray-800 no-underline whitespace-nowrap rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 xl:px-4 xl:text-lg">
-                    {menu.name}
-                </Link>
+                {menu.children ? (
+                  <Popover className="relative">
+                    <PopoverButton className="inline-flex items-center px-2 py-2 text-base font-normal text-gray-800 no-underline whitespace-nowrap rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 xl:px-4 xl:text-lg">
+                        {menu.name}
+                        <ChevronDownIcon className="w-4 h-4 ml-1" />
+                    </PopoverButton>
+                    <PopoverPanel className="absolute left-0 z-20 w-64 py-2 mt-1 text-left bg-white rounded-md shadow-lg dark:bg-trueGray-800">
+                      {menu.children.map((child) => (
+                        <Link key={child.href} href={child.href} className="block px-4 py-2 text-base font-normal text-gray-500 no-underline rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800">
+                            {child.name}
+                        </Link>
+                      ))}
+                    </PopoverPanel>
+                  </Popover>
+                ) : (
+                  <Link href={menu.href} className="inline-block px-2 py-2 text-base font-normal text-gray-800 no-underline whitespace-nowrap rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 xl:px-4 xl:text-lg">
+                      {menu.name}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
