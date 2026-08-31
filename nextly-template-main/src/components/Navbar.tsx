@@ -94,7 +94,7 @@ export const Navbar = () => {
                         {menu.name}
                         <ChevronDownIcon className="w-4 h-4 ml-1" />
                     </PopoverButton>
-                    <PopoverPanel className="absolute left-0 z-20 w-64 py-2 mt-1 text-left bg-white rounded-md shadow-lg dark:bg-trueGray-800">
+                    <PopoverPanel className="absolute right-0 z-20 w-64 py-2 mt-1 text-left bg-white rounded-md shadow-lg dark:bg-trueGray-800">
                       {menu.children.map((child) => (
                         <Link key={child.href} href={child.href} className="block px-4 py-2 text-base font-normal text-gray-500 no-underline rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800">
                             {child.name}

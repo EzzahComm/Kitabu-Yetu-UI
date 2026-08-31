@@ -40,7 +40,7 @@ export function Footer() {
   return (
     <div className="relative">
       <Container>
-        <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-gray-100 dark:border-trueGray-700 sm:grid-cols-2 lg:grid-cols-7">
+        <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-gray-100 dark:border-trueGray-700 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
           <div className="sm:col-span-2">
             <div>
               {" "}
