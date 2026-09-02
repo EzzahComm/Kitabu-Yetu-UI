@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { Container }  from "@/components/Container";
 
@@ -14,6 +15,11 @@ interface BenefitsProps {
       desc: string;
       icon: React.ReactNode;
     }[];
+    /** Optional CTA shown once the section has made its case. Omit to render no button. */
+    cta?: {
+      text: string;
+      href: string;
+    };
   };
 }
 export const Benefits = (props: Readonly<BenefitsProps>) => {
@@ -59,6 +65,16 @@ export const Benefits = (props: Readonly<BenefitsProps>) => {
                 </Benefit>
               ))}
             </div>
+
+            {data.cta && (
+              <div className="w-full mt-8">
+                <Link
+                  href={data.cta.href}
+                  className="inline-block px-6 py-3 text-lg font-medium text-center text-white bg-indigo-600 rounded-md">
+                  {data.cta.text}
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </Container>

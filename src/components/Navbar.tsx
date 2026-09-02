@@ -29,7 +29,7 @@ export const Navbar = () => {
             <ThemeChanger />
             <div className="hidden mr-3 lg:flex nav__item">
               <Link href="/contact" className="px-6 py-2 text-white bg-indigo-600 rounded-md md:ml-5">
-                Start a group
+                Get Started
               </Link>
             </div>
         </div>
@@ -74,8 +74,8 @@ export const Navbar = () => {
                         ))}
                       </div>
                     ))}
-                    <Link href="/contact" className="w-full px-6 py-2 mt-3 text-center text-white bg-indigo-600 rounded-md lg:hidden">         
-                        Start a group
+                    <Link href="/contact" className="w-full px-6 py-2 mt-3 text-center text-white bg-indigo-600 rounded-md lg:hidden">
+                        Get Started
                     </Link>
                   </>
                 </Disclosure.Panel>

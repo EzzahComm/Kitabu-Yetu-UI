@@ -81,6 +81,10 @@ const bookkeeper = {
       icon: <BookOpenIcon />,
     },
   ],
+  cta: {
+    text: "Get Started with Bookkeeper",
+    href: "/pricing#kitabu-yetu",
+  },
 };
 
 const chamaReminder = {
@@ -104,6 +108,10 @@ const chamaReminder = {
       icon: <ArrowTrendingUpIcon />,
     },
   ],
+  cta: {
+    text: "Get Started with Chama Reminder",
+    href: "/pricing#chama-reminder",
+  },
 };
 
 const fundraise = {
@@ -127,6 +135,10 @@ const fundraise = {
       icon: <DocumentTextIcon />,
     },
   ],
+  cta: {
+    text: "Start Fundraising",
+    href: "/contact",
+  },
 };
 
 const enterprise = {
@@ -155,4 +167,8 @@ const enterprise = {
       icon: <PaintBrushIcon />,
     },
   ],
+  cta: {
+    text: "Contact Us",
+    href: "/contact",
+  },
 };

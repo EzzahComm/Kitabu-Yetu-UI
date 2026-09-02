@@ -119,7 +119,7 @@ const pricingdata: PricingProduct[] = [
         price: "KES 150",
         period: "/month",
         allowance: "100 SMS included every month",
-        cta: "Start your group",
+        cta: "Get Started with Bookkeeper",
         features: ["Basic reporting", "M-Pesa integration", "SMS included"],
       },
       {
@@ -128,7 +128,7 @@ const pricingdata: PricingProduct[] = [
         period: "/month",
         allowance: "200 SMS included every month",
         featured: true,
-        cta: "Start your group",
+        cta: "Get Started with Bookkeeper",
         features: [
           "All Starter features",
           "Advanced reports",
@@ -140,7 +140,7 @@ const pricingdata: PricingProduct[] = [
         price: "KES 500",
         period: "/month",
         allowance: "300 SMS included every month",
-        cta: "Start your group",
+        cta: "Get Started with Bookkeeper",
         features: [
           "All Growth features",
           "Priority support",
@@ -151,7 +151,7 @@ const pricingdata: PricingProduct[] = [
         name: "Enterprise",
         price: "By agreement",
         allowance: "Negotiated SMS allowance",
-        cta: "Talk to us",
+        cta: "Contact Us",
         features: [
           "All Premium features",
           "Enterprise portal",
@@ -171,7 +171,7 @@ const pricingdata: PricingProduct[] = [
         price: "KES 100",
         period: "/month",
         allowance: "100 SMS included every month",
-        cta: "Start your group",
+        cta: "Get Started with Chama Reminder",
         features: ["Member list & SMS", "Birthday greetings", "SMS included"],
       },
       {
@@ -180,7 +180,7 @@ const pricingdata: PricingProduct[] = [
         period: "/month",
         allowance: "200 SMS included every month",
         featured: true,
-        cta: "Start your group",
+        cta: "Get Started with Chama Reminder",
         features: [
           "All Starter features",
           "Scheduled campaigns",
@@ -192,7 +192,7 @@ const pricingdata: PricingProduct[] = [
         price: "KES 400",
         period: "/month",
         allowance: "300 SMS included every month",
-        cta: "Start your group",
+        cta: "Get Started with Chama Reminder",
         features: [
           "All Growth features",
           "Higher SMS allowance",
@@ -203,7 +203,7 @@ const pricingdata: PricingProduct[] = [
         name: "Enterprise",
         price: "By agreement",
         allowance: "Negotiated SMS allowance",
-        cta: "Talk to us",
+        cta: "Contact Us",
         features: [
           "All Premium features",
           "Custom sender ID",
