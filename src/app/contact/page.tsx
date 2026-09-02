@@ -14,6 +14,7 @@ export default function ContactPage() {
       <SectionTitle
         preTitle="Contact"
         title="Start a group, or ask us anything first"
+        titleAs="h1"
       >
         Whether you are moving one chama off paper or running a hundred groups
         across a programme, tell us where you are and we will tell you what
@@ -25,7 +26,7 @@ export default function ContactPage() {
           <div className="mt-4">
             <a
               href="mailto:info@kitabuyetu.co.ke"
-              className="hover:text-indigo-500 focus:text-indigo-500 focus:outline-none"
+              className="rounded hover:text-indigo-500 focus:text-indigo-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300"
             >
               info@kitabuyetu.co.ke
             </a>
@@ -33,7 +34,7 @@ export default function ContactPage() {
           <div className="mt-2">
             <a
               href="tel:+254717548646"
-              className="hover:text-indigo-500 focus:text-indigo-500 focus:outline-none"
+              className="rounded hover:text-indigo-500 focus:text-indigo-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300"
             >
               +254 717 548 646
             </a>
@@ -41,7 +42,7 @@ export default function ContactPage() {
           <div className="mt-2">
             <a
               href="tel:+254738692698"
-              className="hover:text-indigo-500 focus:text-indigo-500 focus:outline-none"
+              className="rounded hover:text-indigo-500 focus:text-indigo-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300"
             >
               +254 738 692 698
             </a>

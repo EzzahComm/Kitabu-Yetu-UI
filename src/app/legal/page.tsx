@@ -13,6 +13,7 @@ export default function LegalPage() {
       <SectionTitle
         preTitle="Legal"
         title="Terms, privacy and data protection"
+        titleAs="h1"
       >
         The full documents are being finalised. What follows is what they will
         say, in plain language — and if the final wording differs from this

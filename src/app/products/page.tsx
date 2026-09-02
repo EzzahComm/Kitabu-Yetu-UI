@@ -33,6 +33,7 @@ export default function ProductsPage() {
       <SectionTitle
         preTitle="Products"
         title="Start where your group is, not where the software wants it"
+        titleAs="h1"
       >
         Take the full book, or take the messaging on its own and add the book
         later. Whichever you start with, your group, your members and their

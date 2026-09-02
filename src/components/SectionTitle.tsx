@@ -5,10 +5,13 @@ interface SectionTitleProps {
   preTitle?: string;
   title?: string;
   align?: "left" | "center";
+  /** Render the title as <h1> instead of <h2> — use on the first heading of a page that has no <h1> of its own (Hero already renders one). */
+  titleAs?: "h1" | "h2";
   children?: React.ReactNode;
 }
 
 export const SectionTitle = (props: Readonly<SectionTitleProps>) => {
+  const TitleTag = props.titleAs ?? "h2";
   return (
     <Container
       className={`flex w-full flex-col ${
@@ -21,9 +24,9 @@ export const SectionTitle = (props: Readonly<SectionTitleProps>) => {
       )}
 
       {props.title && (
-        <h2 className="max-w-2xl mt-3 text-3xl font-bold leading-snug tracking-tight text-gray-800 lg:leading-tight lg:text-4xl dark:text-white">
+        <TitleTag className="max-w-2xl mt-3 text-3xl font-bold leading-snug tracking-tight text-gray-800 lg:leading-tight lg:text-4xl dark:text-white">
           {props.title}
-        </h2>
+        </TitleTag>
       )}
 
       {props.children && (

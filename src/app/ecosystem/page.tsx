@@ -29,6 +29,7 @@ export default function EcosystemPage() {
       <SectionTitle
         preTitle="Ecosystem"
         title="A group is rarely on its own"
+        titleAs="h1"
       >
         Behind most groups sits a funder, a network or a programme that needs to
         know the money landed where it was meant to. They read the same ledger

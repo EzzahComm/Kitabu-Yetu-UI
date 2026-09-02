@@ -16,6 +16,7 @@ export default function PricingPage() {
       <SectionTitle
         preTitle="Pricing"
         title="One price a month, for the whole group"
+        titleAs="h1"
       >
         Two products, one bill. Take the full book with Kitabu Yetu, or SMS
         reminders on their own with Chama Reminder. Every price below is the

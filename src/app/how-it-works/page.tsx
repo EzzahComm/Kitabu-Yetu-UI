@@ -28,6 +28,7 @@ export default function HowItWorksPage() {
       <SectionTitle
         preTitle="How it works"
         title="From M-Pesa to your books, in one motion"
+        titleAs="h1"
       >
         The payment and the record of the payment are the same event. Nobody
         retypes anything, and nobody reconciles a statement the night before the

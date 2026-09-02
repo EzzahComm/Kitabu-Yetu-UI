@@ -66,7 +66,7 @@ export function Footer() {
               <div>
                 <a
                   href="mailto:info@kitabuyetu.co.ke"
-                  className="hover:text-indigo-500 focus:text-indigo-500 focus:outline-none"
+                  className="rounded hover:text-indigo-500 focus:text-indigo-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300"
                 >
                   info@kitabuyetu.co.ke
                 </a>
@@ -74,7 +74,7 @@ export function Footer() {
               <div>
                 <a
                   href="tel:+254717548646"
-                  className="hover:text-indigo-500 focus:text-indigo-500 focus:outline-none"
+                  className="rounded hover:text-indigo-500 focus:text-indigo-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300"
                 >
                   +254 717 548 646
                 </a>
@@ -82,7 +82,7 @@ export function Footer() {
               <div>
                 <a
                   href="tel:+254738692698"
-                  className="hover:text-indigo-500 focus:text-indigo-500 focus:outline-none"
+                  className="rounded hover:text-indigo-500 focus:text-indigo-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300"
                 >
                   +254 738 692 698
                 </a>
@@ -116,11 +116,12 @@ export function Footer() {
             <div className="font-medium text-gray-800 dark:text-gray-200">
               Follow us
             </div>
-            <div className="flex flex-wrap mt-5 gap-3 text-gray-400 dark:text-gray-500">
+            <div className="flex flex-wrap items-center mt-5 -ml-2.5 text-gray-400 dark:text-gray-500">
               <a
                 href="https://twitter.com/web3templates"
                 target="_blank"
                 rel="noopener"
+                className="p-2.5 rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300"
               >
                 <span className="sr-only">Twitter</span>
                 <Twitter />
@@ -129,6 +130,7 @@ export function Footer() {
                 href="https://facebook.com/web3templates"
                 target="_blank"
                 rel="noopener"
+                className="p-2.5 rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300"
               >
                 <span className="sr-only">Facebook</span>
                 <Facebook />
@@ -137,11 +139,17 @@ export function Footer() {
                 href="https://instagram.com/web3templates"
                 target="_blank"
                 rel="noopener"
+                className="p-2.5 rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300"
               >
                 <span className="sr-only">Instagram</span>
                 <Instagram />
               </a>
-              <a href="https://linkedin.com/" target="_blank" rel="noopener">
+              <a
+                href="https://linkedin.com/"
+                target="_blank"
+                rel="noopener"
+                className="p-2.5 rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300"
+              >
                 <span className="sr-only">Linkedin</span>
                 <Linkedin />
               </a>

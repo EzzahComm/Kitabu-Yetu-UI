@@ -16,6 +16,7 @@ export default function AboutPage() {
         <SectionTitle
           preTitle="Our Story"
           title="Most groups already keep good records"
+          titleAs="h1"
         >
           The trouble was never discipline. It was where the records lived — one
           cash book in one person&apos;s handwriting, a spreadsheet three
