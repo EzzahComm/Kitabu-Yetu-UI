@@ -79,8 +79,8 @@ const PlanCard = ({ plan }: { plan: Plan }) => (
 
 export const Pricing = () => {
   return (
-    <Container>
-      <p className="max-w-2xl mx-auto -mt-4 mb-12 text-center text-gray-500 dark:text-gray-400">
+    <Container className="mb-20">
+      <p className="max-w-2xl mx-auto mb-12 text-center text-gray-500 dark:text-gray-400">
         Every plan includes a monthly SMS allowance, renewed at the start of
         each billing cycle. Once your included messages are used up you can buy
         more at any time — sending never stops, you simply top up.

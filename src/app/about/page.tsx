@@ -23,7 +23,7 @@ export default function AboutPage() {
           a list of names the evening before every meeting.
         </SectionTitle>
 
-        <Container>
+        <Container className="mb-20">
           <div className="max-w-2xl mx-auto text-lg leading-normal text-center text-gray-500 dark:text-gray-300">
             Kitabu Yetu was built to put those three things in one place: the
             members, the money and the payments, on a ledger that has to

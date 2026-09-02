@@ -20,7 +20,7 @@ export default function ContactPage() {
         setting up looks like.
       </SectionTitle>
 
-      <Container>
+      <Container className="mb-20">
         <div className="max-w-2xl mx-auto text-lg leading-normal text-center text-gray-500 dark:text-gray-300">
           <div className="mt-4">
             <a
