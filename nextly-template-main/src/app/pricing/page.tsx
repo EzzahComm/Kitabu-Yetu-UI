@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Pricing } from "@/components/Pricing";
 import { Faq } from "@/components/Faq";
@@ -13,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function PricingPage() {
   return (
-    <Container>
+    <>
       <SectionTitle
         preTitle="Pricing"
         title="One price a month, for the whole group"
@@ -31,6 +30,6 @@ export default function PricingPage() {
 
       <Faq />
       <Cta />
-    </Container>
+    </>
   );
 }

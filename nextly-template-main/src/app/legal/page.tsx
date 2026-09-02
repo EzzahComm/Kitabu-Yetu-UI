@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
 
 export const metadata: Metadata = {
@@ -10,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function LegalPage() {
   return (
-    <Container>
+    <>
       <SectionTitle
         preTitle="Legal"
         title="Terms, privacy and data protection"
@@ -47,6 +46,6 @@ export default function LegalPage() {
           the person.
         </SectionTitle>
       </div>
-    </Container>
+    </>
   );
 }

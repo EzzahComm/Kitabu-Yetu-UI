@@ -26,7 +26,7 @@ export const Hero = () => {
                 Get started
               </a>
               <a
-                href="/enterprise"
+                href="/products#enterprise"
                 className="flex items-center space-x-2 text-gray-500 dark:text-gray-400">
                 <ArrowRightIcon className="w-6 h-6" />
                 <span>Explore Enterprise</span>

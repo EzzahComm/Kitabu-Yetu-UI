@@ -14,7 +14,6 @@ import {
   PaintBrushIcon,
 } from "@heroicons/react/24/solid";
 
-import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Benefits } from "@/components/Benefits";
 import { Cta } from "@/components/Cta";
@@ -30,7 +29,7 @@ export const metadata: Metadata = {
 
 export default function ProductsPage() {
   return (
-    <Container>
+    <>
       <SectionTitle
         preTitle="Products"
         title="Start where your group is, not where the software wants it"
@@ -57,7 +56,7 @@ export default function ProductsPage() {
       </div>
 
       <Cta />
-    </Container>
+    </>
   );
 }
 

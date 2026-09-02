@@ -25,7 +25,7 @@ export const Navbar = () => {
         </Link>
 
         {/* get started  */}
-        <div className="gap-3 nav__item mr-2 lg:flex ml-auto lg:ml-0 lg:order-2">
+        <div className="gap-3 nav__item mr-2 lg:flex ml-auto xl:ml-0 xl:order-2">
             <ThemeChanger />
             <div className="hidden mr-3 lg:flex nav__item">
               <Link href="/contact" className="px-6 py-2 text-white bg-indigo-600 rounded-md md:ml-5">
@@ -39,7 +39,7 @@ export const Navbar = () => {
             <>
                 <Disclosure.Button
                   aria-label="Toggle Menu"
-                  className="px-2 py-1 text-gray-500 rounded-md lg:hidden hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:text-gray-300 dark:focus:bg-trueGray-700">
+                  className="px-2 py-1 text-gray-500 rounded-md xl:hidden hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:text-gray-300 dark:focus:bg-trueGray-700">
                   <svg
                     className="w-6 h-6 fill-current"
                     xmlns="http://www.w3.org/2000/svg"
@@ -60,7 +60,7 @@ export const Navbar = () => {
                   </svg>
                 </Disclosure.Button>
 
-                <Disclosure.Panel className="flex flex-wrap w-full my-5 lg:hidden">
+                <Disclosure.Panel className="flex flex-wrap w-full my-5 xl:hidden">
                   <>
                     {navigation.map((item) => (
                       <div key={item.href} className="w-full">
@@ -74,7 +74,7 @@ export const Navbar = () => {
                         ))}
                       </div>
                     ))}
-                    <Link href="/contact" className="w-full px-6 py-2 mt-3 text-center text-white bg-indigo-600 rounded-md lg:ml-5">         
+                    <Link href="/contact" className="w-full px-6 py-2 mt-3 text-center text-white bg-indigo-600 rounded-md lg:hidden">         
                         Start a group
                     </Link>
                   </>
@@ -84,13 +84,13 @@ export const Navbar = () => {
         </Disclosure>
         
         {/* menu  */}
-        <div className="hidden text-center lg:flex lg:items-center">
-          <ul className="items-center justify-end flex-1 pt-6 list-none lg:pt-0 lg:flex">
+        <div className="hidden text-center xl:flex xl:items-center">
+          <ul className="items-center justify-end flex-1 pt-6 list-none xl:pt-0 xl:flex">
             {navigation.map((menu) => (
               <li className="mr-1 nav__item xl:mr-3" key={menu.href}>
                 {menu.children ? (
                   <Popover className="relative">
-                    <PopoverButton className="inline-flex items-center px-2 py-2 text-base font-normal text-gray-800 no-underline whitespace-nowrap rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 xl:px-4 xl:text-lg">
+                    <PopoverButton className="inline-flex items-center px-2 py-2 text-base font-normal text-gray-800 no-underline whitespace-nowrap rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 xl:px-3 xl:text-lg">
                         {menu.name}
                         <ChevronDownIcon className="w-4 h-4 ml-1" />
                     </PopoverButton>
@@ -103,7 +103,7 @@ export const Navbar = () => {
                     </PopoverPanel>
                   </Popover>
                 ) : (
-                  <Link href={menu.href} className="inline-block px-2 py-2 text-base font-normal text-gray-800 no-underline whitespace-nowrap rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 xl:px-4 xl:text-lg">
+                  <Link href={menu.href} className="inline-block px-2 py-2 text-base font-normal text-gray-800 no-underline whitespace-nowrap rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 xl:px-3 xl:text-lg">
                       {menu.name}
                   </Link>
                 )}

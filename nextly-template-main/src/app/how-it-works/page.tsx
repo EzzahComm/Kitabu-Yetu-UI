@@ -8,7 +8,6 @@ import {
   ArrowTrendingUpIcon,
 } from "@heroicons/react/24/solid";
 
-import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Benefits } from "@/components/Benefits";
 import { Video } from "@/components/Video";
@@ -25,7 +24,7 @@ export const metadata: Metadata = {
 
 export default function HowItWorksPage() {
   return (
-    <Container>
+    <>
       <SectionTitle
         preTitle="How it works"
         title="From M-Pesa to your books, in one motion"
@@ -50,7 +49,7 @@ export default function HowItWorksPage() {
       <Benefits imgPos="right" data={theEdges} />
 
       <Cta />
-    </Container>
+    </>
   );
 }
 

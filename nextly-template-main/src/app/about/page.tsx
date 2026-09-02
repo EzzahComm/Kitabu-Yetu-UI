@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <Container>
+    <>
       <div id="our-story">
         <SectionTitle
           preTitle="Our Story"
@@ -23,12 +23,14 @@ export default function AboutPage() {
           a list of names the evening before every meeting.
         </SectionTitle>
 
-        <div className="max-w-2xl mx-auto text-lg leading-normal text-center text-gray-500 dark:text-gray-300">
-          Kitabu Yetu was built to put those three things in one place: the
-          members, the money and the payments, on a ledger that has to balance
-          before it saves. The group keeps doing what it already does. The book
-          just stops being something one person carries.
-        </div>
+        <Container>
+          <div className="max-w-2xl mx-auto text-lg leading-normal text-center text-gray-500 dark:text-gray-300">
+            Kitabu Yetu was built to put those three things in one place: the
+            members, the money and the payments, on a ledger that has to
+            balance before it saves. The group keeps doing what it already
+            does. The book just stops being something one person carries.
+          </div>
+        </Container>
       </div>
 
       <div id="team">
@@ -47,6 +49,6 @@ export default function AboutPage() {
       </div>
 
       <Cta />
-    </Container>
+    </>
   );
 }

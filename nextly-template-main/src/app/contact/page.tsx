@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <Container>
+    <>
       <SectionTitle
         preTitle="Contact"
         title="Start a group, or ask us anything first"
@@ -20,33 +20,35 @@ export default function ContactPage() {
         setting up looks like.
       </SectionTitle>
 
-      <div className="max-w-2xl mx-auto text-lg leading-normal text-center text-gray-500 dark:text-gray-300">
-        <div className="mt-4">
-          <a
-            href="mailto:info@kitabuyetu.co.ke"
-            className="hover:text-indigo-500 focus:text-indigo-500 focus:outline-none"
-          >
-            info@kitabuyetu.co.ke
-          </a>
+      <Container>
+        <div className="max-w-2xl mx-auto text-lg leading-normal text-center text-gray-500 dark:text-gray-300">
+          <div className="mt-4">
+            <a
+              href="mailto:info@kitabuyetu.co.ke"
+              className="hover:text-indigo-500 focus:text-indigo-500 focus:outline-none"
+            >
+              info@kitabuyetu.co.ke
+            </a>
+          </div>
+          <div className="mt-2">
+            <a
+              href="tel:+254717548646"
+              className="hover:text-indigo-500 focus:text-indigo-500 focus:outline-none"
+            >
+              +254 717 548 646
+            </a>
+          </div>
+          <div className="mt-2">
+            <a
+              href="tel:+254738692698"
+              className="hover:text-indigo-500 focus:text-indigo-500 focus:outline-none"
+            >
+              +254 738 692 698
+            </a>
+          </div>
+          <div className="mt-2">Nairobi, Kenya</div>
         </div>
-        <div className="mt-2">
-          <a
-            href="tel:+254717548646"
-            className="hover:text-indigo-500 focus:text-indigo-500 focus:outline-none"
-          >
-            +254 717 548 646
-          </a>
-        </div>
-        <div className="mt-2">
-          <a
-            href="tel:+254738692698"
-            className="hover:text-indigo-500 focus:text-indigo-500 focus:outline-none"
-          >
-            +254 738 692 698
-          </a>
-        </div>
-        <div className="mt-2">Nairobi, Kenya</div>
-      </div>
-    </Container>
+      </Container>
+    </>
   );
 }

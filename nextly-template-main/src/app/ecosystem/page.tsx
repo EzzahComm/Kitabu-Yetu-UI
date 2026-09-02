@@ -10,7 +10,6 @@ import {
   GlobeAltIcon,
 } from "@heroicons/react/24/solid";
 
-import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Benefits } from "@/components/Benefits";
 import { Cta } from "@/components/Cta";
@@ -26,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function EcosystemPage() {
   return (
-    <Container>
+    <>
       <SectionTitle
         preTitle="Ecosystem"
         title="A group is rarely on its own"
@@ -53,7 +52,7 @@ export default function EcosystemPage() {
       </div>
 
       <Cta />
-    </Container>
+    </>
   );
 }
 
