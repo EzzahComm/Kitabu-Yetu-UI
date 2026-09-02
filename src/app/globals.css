@@ -11,3 +11,10 @@
   }
 }
 
+
+@layer base {
+  /* Anchor targets sit under the sticky navbar without this offset. */
+  :target {
+    scroll-margin-top: 7rem;
+  }
+}

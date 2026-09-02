@@ -14,7 +14,7 @@ import { navigation } from "./navigation";
 export const Navbar = () => {
 
   return (
-    <div className="w-full">
+    <div className="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-sm dark:bg-trueGray-900/90">
       <nav className="container relative flex flex-wrap items-center justify-between p-8 mx-auto lg:justify-between xl:px-1">
         {/* Logo  */}
         <Link href="/">
@@ -60,7 +60,7 @@ export const Navbar = () => {
                   </svg>
                 </Disclosure.Button>
 
-                <Disclosure.Panel className="flex flex-wrap w-full my-5 xl:hidden">
+                <Disclosure.Panel className="flex flex-wrap w-full my-5 overflow-y-auto max-h-[calc(100vh-8rem)] xl:hidden">
                   <>
                     {navigation.map((item) => (
                       <div key={item.href} className="w-full">
