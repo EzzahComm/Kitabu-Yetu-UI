@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
+import { ContactForm } from "@/components/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact — Kitabu Yetu",
@@ -49,6 +50,13 @@ export default function ContactPage() {
           </div>
           <div className="mt-2">Nairobi, Kenya</div>
         </div>
+      </Container>
+
+      <Container className="mb-20">
+        <h2 className="max-w-xl mx-auto mb-8 text-2xl font-bold text-center text-gray-800 dark:text-white">
+          Or tell us about your group
+        </h2>
+        <ContactForm />
       </Container>
     </>
   );
