@@ -4,38 +4,30 @@ import { Container } from "@/components/Container";
 const testimonials = [
   {
     quote:
-      "Kitabu Yetu has been a game changer for accountability and transparency in our group. We track our income-generating activities, monitor expenses and understand our financial performance.",
+      "Kitabu Yetu has been a game changer for accountability and transparency in our group.",
     mark: "game changer",
     name: "Ezra Wekesa",
     title: "Coordinator, Munyali Ukulima Self Help Group",
   },
   {
     quote:
-      "Kitabu Yetu has made mobilizing our members much easier, simplified my day-to-day responsibilities and made managing the group more efficient.",
+      "It has made mobilizing our members much easier and managing the group more efficient.",
     mark: "much easier",
     name: "Bernard Kisaka",
     title: "Musikoma Home Owners Welfare Association",
   },
   {
-    quote:
-      "Manually updating contributions is a thing of the past — Kitabu Yetu makes tracking easier, faster and more transparent.",
-    mark: "faster and more transparent",
+    quote: "Manually updating contributions is a thing of the past.",
+    mark: "a thing of the past",
     name: "Britney Mideva",
     title: "Treasurer, The Fionas",
-  },
-  {
-    quote:
-      "Meeting attendance has improved significantly, and timely contributions are becoming the norm. Automatic reminders and scheduling keep our members engaged and accountable.",
-    mark: "engaged and accountable",
-    name: "Joseph Bienda",
-    title: "Chairperson, Capital Point Chama",
   },
 ];
 
 export const Testimonials = () => {
   return (
     <Container className="mb-20">
-      <div className="grid gap-10 md:grid-cols-2">
+      <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-3">
         {testimonials.map((item) => (
           <div key={item.name}>
             <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
