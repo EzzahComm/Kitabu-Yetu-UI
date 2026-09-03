@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import React from "react";
 import { Container } from "@/components/Container";
 import { BrandLogo } from "@/components/BrandLogo";
@@ -90,21 +89,6 @@ export function Footer() {
               <div>Nairobi, Kenya</div>
             </div>
 
-            <div className="mt-5">
-              <a
-                href="https://vercel.com/?utm_source=web3templates&utm_campaign=oss"
-                target="_blank"
-                rel="noopener"
-                className="relative block w-44"
-              >
-                <Image
-                  src="/img/vercel.svg"
-                  alt="Powered by Vercel"
-                  width="212"
-                  height="44"
-                />
-              </a>
-            </div>
           </div>
 
           <FooterColumn title="Products" items={products} />
