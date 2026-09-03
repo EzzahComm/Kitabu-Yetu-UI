@@ -1,22 +1,85 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Container } from "@/components/Container";
 import { signUpUrl } from "@/lib/app-links";
 import heroImg from "../../public/img/hero.png";
+import benefitTwoImg from "../../public/img/benefit-two.png";
+
+/**
+ * The two pitches the hero rotates between. Copy for the second slide is
+ * lifted verbatim from the `benefitTwo` entry in data.js, so nothing here is
+ * a new marketing claim — it's the same line the page already makes further
+ * down, just surfaced earlier.
+ */
+const HERO_MESSAGES = [
+  {
+    id: "run-your-group",
+    title: "Run your group. Grow its potential.",
+    subtitle:
+      "Manage your members, money, investments and communication in one simple platform.",
+    image: heroImg,
+    imageAlt: "Illustration of a group managing their finances together",
+  },
+  {
+    id: "savings-pot",
+    title: "More than a savings pot",
+    subtitle:
+      "The group keeps its members informed, puts its money to work, and lets every member check their own record without waiting for a meeting.",
+    image: benefitTwoImg,
+    imageAlt: "Illustration of a member checking their savings on a phone",
+  },
+] as const;
+
+const ROTATION_MS = 6000;
 
 export const Hero = () => {
+  const [index, setIndex] = useState(0);
+  const prefersReducedMotion = useReducedMotion();
+
+  useEffect(() => {
+    // Respect prefers-reduced-motion: leave the first message on screen
+    // instead of auto-rotating.
+    if (prefersReducedMotion) return;
+
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev === 0 ? 1 : 0));
+    }, ROTATION_MS);
+    return () => clearInterval(timer);
+  }, [prefersReducedMotion]);
+
+  const current = HERO_MESSAGES[index];
+
   return (
     <>
       <Container className="flex flex-wrap ">
         <div className="flex items-center w-full lg:w-1/2">
           <div className="max-w-2xl mb-8">
-            <h1 className="text-4xl font-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white">
-              Run your group. Grow its potential.
-            </h1>
-            <p className="pt-5 text-xl font-medium leading-normal text-gray-800 lg:text-xl xl:text-2xl dark:text-gray-200">
-              Manage your members, money, investments and communication in one
-              simple platform.
-            </p>
+            {/* Both slides share this grid cell so the taller of the two
+                sets the box size during the crossfade — no fixed height,
+                no layout jump once the shorter one settles in. */}
+            <div className="grid">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={current.id}
+                  initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: prefersReducedMotion ? 0 : -20 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className="col-start-1 row-start-1">
+                  <h1 className="text-4xl font-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white">
+                    {current.title}
+                  </h1>
+                  <p className="pt-5 text-xl font-medium leading-normal text-gray-800 lg:text-xl xl:text-2xl dark:text-gray-200">
+                    {current.subtitle}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
             <p className="py-5 text-lg leading-normal text-gray-500 lg:text-lg xl:text-xl dark:text-gray-300">
               Kitabu Yetu helps chamas, welfare groups, SACCOs, investment clubs
               and community organizations manage contributions, loans, expenses,
@@ -47,16 +110,26 @@ export const Hero = () => {
           </div>
         </div>
         <div className="flex items-center justify-center w-full lg:w-1/2">
-          <div className="">
-            <Image
-              src={heroImg}
-              width="616"
-              height="617"
-              className={"object-cover"}
-              alt="Hero Illustration"
-              loading="eager"
-              placeholder="blur"
-            />
+          <div className="grid">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={current.id}
+                initial={{ opacity: 0, x: prefersReducedMotion ? 0 : 40 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: prefersReducedMotion ? 0 : -40 }}
+                transition={{ duration: 0.6, ease: [0.32, 0.94, 0.6, 1] }}
+                className="col-start-1 row-start-1">
+                <Image
+                  src={current.image}
+                  width={current.image.width}
+                  height={current.image.height}
+                  className={"object-cover"}
+                  alt={current.imageAlt}
+                  loading="eager"
+                  placeholder="blur"
+                />
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </Container>
