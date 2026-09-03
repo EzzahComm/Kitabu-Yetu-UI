@@ -75,7 +75,11 @@ export function ContactForm() {
       )}
 
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
-        <input type="hidden" value="YOUR_ACCESS_KEY_HERE" {...register("apikey")} />
+        <input
+          type="hidden"
+          value={process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? ""}
+          {...register("apikey")}
+        />
         <input type="hidden" value="A group reached out from the Kitabu Yetu contact page" {...register("subject")} />
         <input type="hidden" value="Kitabu Yetu" {...register("from_name")} />
         <input

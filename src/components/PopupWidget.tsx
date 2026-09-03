@@ -129,7 +129,7 @@ export function PopupWidget() {
                     <form onSubmit={handleSubmit(onSubmit)} noValidate>
                       <input
                         type="hidden"
-                        value="YOUR_ACCESS_KEY_HERE"
+                        value={process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? ""}
                         {...register("apikey")}
                       />
                       <input
