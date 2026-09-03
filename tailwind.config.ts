@@ -32,6 +32,18 @@ const config: Config = {
       },
     },
     extend: {
+      // Continuous horizontal scroll for the testimonial strip. The track holds
+      // two copies of the list, so translating it -50% lands exactly on the
+      // start of the second copy and the loop is seamless.
+      keyframes: {
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
+        },
+      },
+      animation: {
+        marquee: "marquee 40s linear infinite",
+      },
       colors: {
         trueGray: colors.neutral,
         // Overrides Tailwind's default indigo scale in place, so every

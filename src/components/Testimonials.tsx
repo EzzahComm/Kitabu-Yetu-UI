@@ -22,27 +22,62 @@ const testimonials = [
     name: "Britney Mideva",
     title: "Treasurer, The Fionas",
   },
+  {
+    quote:
+      "Meeting attendance has improved and timely contributions are becoming the norm.",
+    mark: "becoming the norm",
+    name: "Joseph Bienda",
+    title: "Chairperson, Capital Point Chama",
+  },
 ];
 
+/**
+ * Testimonials as a continuously sliding strip. The track carries the list
+ * twice — the second copy is aria-hidden so it isn't announced twice — and
+ * animates to -50%, which is exactly the width of one copy, so it loops
+ * seamlessly. Pauses on hover and on keyboard focus; under
+ * prefers-reduced-motion the animation stops and the strip becomes an ordinary
+ * horizontal scroll region instead.
+ */
 export const Testimonials = () => {
   return (
     <Container className="mb-20">
-      <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-3">
-        {testimonials.map((item) => (
-          <div key={item.name}>
-            <div className="flex flex-col justify-between w-full h-full bg-gray-100 px-14 rounded-2xl py-14 dark:bg-trueGray-800">
-              <p className="text-2xl leading-normal">
-                {quoteWithMark(item.quote, item.mark)}
-              </p>
-
-              <Avatar name={item.name} title={item.title} />
-            </div>
-          </div>
-        ))}
+      <div className="relative overflow-hidden group motion-reduce:overflow-x-auto">
+        <div className="flex w-max gap-8 animate-marquee group-hover:[animation-play-state:paused] focus-within:[animation-play-state:paused] motion-reduce:animate-none">
+          {testimonials.map((item) => (
+            <Card key={item.name} item={item} />
+          ))}
+          {testimonials.map((item) => (
+            <Card key={`${item.name}-duplicate`} item={item} ariaHidden />
+          ))}
+        </div>
       </div>
     </Container>
   );
 };
+
+interface Item {
+  quote: string;
+  mark: string;
+  name: string;
+  title: string;
+}
+
+function Card({ item, ariaHidden }: { item: Item; ariaHidden?: boolean }) {
+  return (
+    <figure
+      aria-hidden={ariaHidden}
+      className="flex flex-col justify-between flex-shrink-0 w-80 p-10 bg-gray-100 sm:w-96 rounded-2xl dark:bg-trueGray-800"
+    >
+      <blockquote className="text-xl leading-normal">
+        {quoteWithMark(item.quote, item.mark)}
+      </blockquote>
+      <figcaption>
+        <Avatar name={item.name} title={item.title} />
+      </figcaption>
+    </figure>
+  );
+}
 
 /** Splits a quote around `mark` and wraps that phrase in <Mark>, so the highlight is data-driven rather than hand-split JSX per testimonial. */
 function quoteWithMark(quote: string, mark: string) {
@@ -77,7 +112,9 @@ function Avatar(props: Readonly<AvatarProps>) {
       </div>
       <div>
         <div className="text-lg font-medium">{props.name}</div>
-        <div className="text-gray-600 dark:text-gray-400">{props.title}</div>
+        <div className="text-sm text-gray-600 dark:text-gray-400">
+          {props.title}
+        </div>
       </div>
     </div>
   );

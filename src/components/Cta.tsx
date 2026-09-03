@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Container } from "@/components/Container";
+import { signUpUrl } from "@/lib/app-links";
 
 interface CtaAction {
   text: string;
@@ -28,7 +29,7 @@ export const Cta = (props: Readonly<CtaProps>) => {
     subtitle = "Pay by M-Pesa, from KES 150 a month, with no lock-in period.",
     note,
     footnote,
-    primary = { text: "Get Started", href: "/contact" },
+    primary = { text: "Get Started", href: signUpUrl() },
     secondary,
   } = props;
 

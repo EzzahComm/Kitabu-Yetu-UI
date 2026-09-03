@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { Container } from "@/components/Container";
 import { CheckIcon } from "@heroicons/react/24/solid";
+import { signUpUrl } from "@/lib/app-links";
 
 interface Plan {
   name: string;
@@ -10,6 +11,8 @@ interface Plan {
   allowance: string;
   featured?: boolean;
   cta: string;
+  /** Where this plan's button goes. Self-serve tiers open the app's sign-up; negotiated tiers go to contact. */
+  ctaHref: string;
   features: string[];
 }
 
@@ -64,7 +67,7 @@ const PlanCard = ({ plan }: { plan: Plan }) => (
 
     <div className="mt-auto pt-7">
       <Link
-        href="/contact"
+        href={plan.ctaHref}
         className={`inline-block w-full px-6 py-3 text-lg font-medium text-center rounded-md ${
           plan.featured
             ? "text-white bg-indigo-600"
@@ -120,6 +123,7 @@ const pricingdata: PricingProduct[] = [
         period: "/month",
         allowance: "100 SMS included every month",
         cta: "Get Started with Bookkeeper",
+        ctaHref: signUpUrl("kitabu_yetu"),
         features: ["Basic reporting", "M-Pesa integration", "SMS included"],
       },
       {
@@ -129,6 +133,7 @@ const pricingdata: PricingProduct[] = [
         allowance: "200 SMS included every month",
         featured: true,
         cta: "Get Started with Bookkeeper",
+        ctaHref: signUpUrl("kitabu_yetu"),
         features: [
           "All Starter features",
           "Advanced reports",
@@ -141,6 +146,7 @@ const pricingdata: PricingProduct[] = [
         period: "/month",
         allowance: "300 SMS included every month",
         cta: "Get Started with Bookkeeper",
+        ctaHref: signUpUrl("kitabu_yetu"),
         features: [
           "All Growth features",
           "Priority support",
@@ -152,6 +158,7 @@ const pricingdata: PricingProduct[] = [
         price: "By agreement",
         allowance: "Negotiated SMS allowance",
         cta: "Contact Us",
+        ctaHref: "/contact",
         features: [
           "All Premium features",
           "Enterprise portal",
@@ -172,6 +179,7 @@ const pricingdata: PricingProduct[] = [
         period: "/month",
         allowance: "100 SMS included every month",
         cta: "Get Started with Chama Reminder",
+        ctaHref: signUpUrl("chama_reminder"),
         features: ["Member list & SMS", "Birthday greetings", "SMS included"],
       },
       {
@@ -181,6 +189,7 @@ const pricingdata: PricingProduct[] = [
         allowance: "200 SMS included every month",
         featured: true,
         cta: "Get Started with Chama Reminder",
+        ctaHref: signUpUrl("chama_reminder"),
         features: [
           "All Starter features",
           "Scheduled campaigns",
@@ -193,6 +202,7 @@ const pricingdata: PricingProduct[] = [
         period: "/month",
         allowance: "300 SMS included every month",
         cta: "Get Started with Chama Reminder",
+        ctaHref: signUpUrl("chama_reminder"),
         features: [
           "All Growth features",
           "Higher SMS allowance",
@@ -204,6 +214,7 @@ const pricingdata: PricingProduct[] = [
         price: "By agreement",
         allowance: "Negotiated SMS allowance",
         cta: "Contact Us",
+        ctaHref: "/contact",
         features: [
           "All Premium features",
           "Custom sender ID",

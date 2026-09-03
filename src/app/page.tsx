@@ -17,6 +17,7 @@ import { Benefits } from "@/components/Benefits";
 import { ProductGrid } from "@/components/ProductGrid";
 import { Testimonials } from "@/components/Testimonials";
 import { Cta } from "@/components/Cta";
+import { signUpUrl } from "@/lib/app-links";
 
 import benefitOneImg from "../../public/img/benefit-one.png";
 import benefitTwoImg from "../../public/img/benefit-two.png";
@@ -122,7 +123,7 @@ export default function Home() {
         subtitle="Bring your members, money, records and investments together."
         note="Not sure where to start? Tell us about your group and we'll recommend the right solution."
         footnote="No lock-in period · Pay by M-Pesa · Built for Kenyan groups"
-        primary={{ text: "Get Started", href: "/contact" }}
+        primary={{ text: "Get Started", href: signUpUrl() }}
         secondary={{ text: "Talk to Us", href: "/contact" }}
       />
     </>

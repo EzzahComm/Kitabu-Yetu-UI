@@ -17,6 +17,7 @@ import {
 import { SectionTitle } from "@/components/SectionTitle";
 import { Benefits } from "@/components/Benefits";
 import { Cta } from "@/components/Cta";
+import { signUpUrl } from "@/lib/app-links";
 
 import benefitOneImg from "../../../public/img/benefit-one.png";
 import benefitTwoImg from "../../../public/img/benefit-two.png";
@@ -84,7 +85,7 @@ const bookkeeper = {
   ],
   cta: {
     text: "Get Started with Bookkeeper",
-    href: "/pricing#kitabu-yetu",
+    href: signUpUrl("kitabu_yetu"),
   },
 };
 
@@ -111,7 +112,7 @@ const chamaReminder = {
   ],
   cta: {
     text: "Get Started with Chama Reminder",
-    href: "/pricing#chama-reminder",
+    href: signUpUrl("chama_reminder"),
   },
 };
 

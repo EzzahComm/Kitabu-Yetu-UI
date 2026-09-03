@@ -10,6 +10,7 @@ import {
 } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { navigation } from "./navigation";
+import { signUpUrl } from "@/lib/app-links";
 
 export const Navbar = () => {
 
@@ -28,9 +29,9 @@ export const Navbar = () => {
         <div className="gap-3 nav__item mr-2 lg:flex ml-auto xl:ml-0 xl:order-2">
             <ThemeChanger />
             <div className="hidden mr-3 lg:flex nav__item">
-              <Link href="/contact" className="px-6 py-2 text-white bg-indigo-600 rounded-md md:ml-5">
+              <a href={signUpUrl()} className="px-6 py-2 text-white bg-indigo-600 rounded-md md:ml-5">
                 Get Started
-              </Link>
+              </a>
             </div>
         </div>
                 
@@ -74,9 +75,9 @@ export const Navbar = () => {
                         ))}
                       </div>
                     ))}
-                    <Link href="/contact" className="w-full px-6 py-2 mt-3 text-center text-white bg-indigo-600 rounded-md lg:hidden">
+                    <a href={signUpUrl()} className="w-full px-6 py-2 mt-3 text-center text-white bg-indigo-600 rounded-md lg:hidden">
                         Get Started
-                    </Link>
+                    </a>
                   </>
                 </Disclosure.Panel>
             </>
