@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import ThemeChanger from "./DarkSwitch";
 import { BrandLogo } from "./BrandLogo";
 import {
@@ -8,113 +9,223 @@ import {
   PopoverButton,
   PopoverPanel,
 } from "@headlessui/react";
-import { ChevronDownIcon } from "@heroicons/react/24/solid";
+import {
+  ArrowRightIcon,
+  Bars3Icon,
+  ChevronDownIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
 import { navigation } from "./navigation";
-import { signUpUrl } from "@/lib/app-links";
+import { signInUrl, signUpUrl } from "@/lib/app-links";
+
+const linkClasses =
+  "relative rounded-sm text-[0.9375rem] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-4 focus-visible:ring-offset-transparent";
+const inactiveLinkClasses =
+  "text-brand-blue-900/70 hover:text-brand-blue-900 dark:text-gray-300 dark:hover:text-white";
+const activeLinkClasses = "text-brand-blue-900 dark:text-white";
 
 export const Navbar = () => {
+  const pathname = usePathname();
+  const isActive = (href: string) => pathname === href;
 
   return (
-    <div className="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-sm dark:bg-trueGray-900/90">
-      <nav className="container relative flex flex-wrap items-center justify-between py-8 lg:justify-between xl:px-1">
-        {/* Logo  */}
-        <Link href="/">
-          <span className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100">
-              <BrandLogo size={32} priority />
-            <span>Kitabu Yetu</span>
-          </span>
-        </Link>
+    <>
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-white focus:px-4 focus:py-2.5 focus:text-sm focus:font-semibold focus:text-brand-blue-900 focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-500 dark:focus:bg-trueGray-800 dark:focus:text-white">
+        Skip to content
+      </a>
 
-        {/* get started  */}
-        <div className="gap-3 nav__item mr-2 lg:flex ml-auto xl:ml-0 xl:order-2">
-            <ThemeChanger />
-            <div className="hidden mr-3 lg:flex nav__item">
-              <a href={signUpUrl()} className="px-6 py-2 text-white bg-indigo-600 rounded-md md:ml-5">
-                Get Started
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-brand-blue-900/10 bg-paper/90 backdrop-blur-md transition-colors duration-300 supports-[backdrop-filter]:bg-paper/75 dark:border-white/10 dark:bg-trueGray-900/90 dark:supports-[backdrop-filter]:bg-trueGray-900/75">
+        <div className="mx-auto w-full max-w-[82rem] px-5 sm:px-8 lg:px-10">
+          <div className="flex h-16 items-center justify-between gap-6 lg:h-20">
+            {/* Logo */}
+            <Link
+              href="/"
+              className="flex shrink-0 items-center gap-2.5 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-4 focus-visible:ring-offset-transparent"
+              aria-label="Kitabu Yetu — home">
+              <BrandLogo size={34} priority />
+              <span className="font-display text-[1.35rem] font-normal tracking-tight text-brand-blue-900 transition-colors dark:text-white">
+                Kitabu Yetu
+              </span>
+            </Link>
+
+            {/* Desktop menu */}
+            <nav aria-label="Primary" className="hidden lg:block">
+              <ul className="flex items-center gap-8">
+                {navigation.map((item) => {
+                  const active = isActive(item.href);
+                  return (
+                    <li key={item.href}>
+                      {item.children ? (
+                        <Popover className="relative">
+                          <PopoverButton
+                            className={`flex items-center gap-1.5 ${linkClasses} ${
+                              active ? activeLinkClasses : inactiveLinkClasses
+                            }`}>
+                            {({ open }) => (
+                              <>
+                                {item.name}
+                                <ChevronDownIcon
+                                  className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                                    open ? "rotate-180" : ""
+                                  }`}
+                                  aria-hidden="true"
+                                />
+                                {active && (
+                                  <span
+                                    aria-hidden="true"
+                                    className="absolute -bottom-1.5 left-0 h-px w-full bg-brand-500"
+                                  />
+                                )}
+                              </>
+                            )}
+                          </PopoverButton>
+                          <PopoverPanel className="absolute right-0 z-20 mt-2 w-64 rounded-md border border-brand-blue-900/10 bg-paper py-2 text-left shadow-lg dark:border-white/10 dark:bg-trueGray-800">
+                            {item.children.map((child) => (
+                              <Link
+                                key={child.href}
+                                href={child.href}
+                                className="block rounded-md px-4 py-2 text-sm text-brand-blue-900/80 hover:bg-brand-blue-900/[0.05] hover:text-brand-blue-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 dark:text-gray-300 dark:hover:bg-white/5 dark:hover:text-white">
+                                {child.name}
+                              </Link>
+                            ))}
+                          </PopoverPanel>
+                        </Popover>
+                      ) : (
+                        <Link
+                          href={item.href}
+                          aria-current={active ? "page" : undefined}
+                          className={`${linkClasses} ${
+                            active ? activeLinkClasses : inactiveLinkClasses
+                          }`}>
+                          {item.name}
+                          {active && (
+                            <span
+                              aria-hidden="true"
+                              className="absolute -bottom-1.5 left-0 h-px w-full bg-brand-500"
+                            />
+                          )}
+                        </Link>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            </nav>
+
+            {/* Desktop right-hand actions */}
+            <div className="hidden shrink-0 items-center gap-1 lg:flex">
+              <ThemeChanger />
+              <a
+                href={signInUrl()}
+                className="rounded-md px-4 py-2 text-[0.9375rem] font-medium text-brand-blue-900/80 transition-colors hover:bg-brand-blue-900/[0.05] hover:text-brand-blue-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 dark:text-gray-300 dark:hover:bg-white/5 dark:hover:text-white">
+                Sign in
+              </a>
+              <a
+                href={signUpUrl()}
+                className="group inline-flex items-center gap-2 rounded-md bg-brand-600 px-5 py-2.5 text-[0.9375rem] font-semibold text-white transition-colors hover:bg-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2">
+                Get started
+                <ArrowRightIcon className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
               </a>
             </div>
-        </div>
-                
-        <Disclosure>
-          {({ open }) => (
-            <>
-                <Disclosure.Button
-                  aria-label="Toggle Menu"
-                  className="p-2.5 text-gray-500 rounded-md xl:hidden hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:text-gray-300 dark:focus:bg-trueGray-700">
-                  <svg
-                    className="w-6 h-6 fill-current"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24">
-                    {open && (
-                      <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"
-                      />
-                    )}
-                    {!open && (
-                      <path
-                        fillRule="evenodd"
-                        d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
-                      />
-                    )}
-                  </svg>
-                </Disclosure.Button>
 
-                <Disclosure.Panel className="flex flex-wrap w-full my-5 overflow-y-auto max-h-[calc(100vh-8rem)] xl:hidden">
-                  <>
-                    {navigation.map((item) => (
-                      <div key={item.href} className="w-full">
-                        <Link href={item.href} className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none">
-                            {item.name}
-                        </Link>
-                        {item.children?.map((child) => (
-                          <Link key={child.href} href={child.href} className="w-full px-4 py-2 text-sm text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none">
-                              {child.name}
-                          </Link>
-                        ))}
+            {/* Mobile toggle */}
+            <Disclosure>
+              {({ open }) => (
+                <>
+                  <div className="flex shrink-0 items-center gap-1 lg:hidden">
+                    <ThemeChanger />
+                    <Disclosure.Button
+                      aria-label={open ? "Close menu" : "Open menu"}
+                      className="-mr-2 rounded-md p-2.5 text-brand-blue-900 transition-colors hover:bg-brand-blue-900/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 dark:text-white dark:hover:bg-white/10">
+                      <span className="sr-only">
+                        {open ? "Close menu" : "Open menu"}
+                      </span>
+                      {open ? (
+                        <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                      ) : (
+                        <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+                      )}
+                    </Disclosure.Button>
+                  </div>
+
+                  <Disclosure.Panel
+                    id="site-menu"
+                    className="fixed inset-x-0 top-16 z-40 max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-brand-blue-900/10 bg-paper lg:hidden dark:border-white/10 dark:bg-trueGray-900">
+                    <nav aria-label="Primary" className="px-5 py-4 sm:px-8">
+                      <ul className="divide-y divide-brand-blue-900/[0.07] dark:divide-white/10">
+                        {navigation.map((item) => {
+                          const active = isActive(item.href);
+                          const children = item.children;
+                          return (
+                            <li key={item.href}>
+                              {children ? (
+                                <Disclosure>
+                                  {({ open: childOpen }) => (
+                                    <>
+                                      <Disclosure.Button className="flex w-full items-center justify-between py-4 text-lg text-brand-blue-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 dark:text-white">
+                                        {item.name}
+                                        <ChevronDownIcon
+                                          className={`h-5 w-5 text-brand-blue-900/40 transition-transform duration-200 dark:text-white/40 ${
+                                            childOpen ? "rotate-180" : ""
+                                          }`}
+                                          aria-hidden="true"
+                                        />
+                                      </Disclosure.Button>
+                                      <Disclosure.Panel className="pb-4 pl-4">
+                                        <ul className="space-y-1">
+                                          {children.map((child) => (
+                                            <li key={child.href}>
+                                              <Link
+                                                href={child.href}
+                                                className="block rounded-md px-3 py-2 text-base text-brand-blue-900/70 hover:bg-brand-blue-900/[0.05] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 dark:text-gray-300 dark:hover:bg-white/5">
+                                                {child.name}
+                                              </Link>
+                                            </li>
+                                          ))}
+                                        </ul>
+                                      </Disclosure.Panel>
+                                    </>
+                                  )}
+                                </Disclosure>
+                              ) : (
+                                <Link
+                                  href={item.href}
+                                  aria-current={active ? "page" : undefined}
+                                  className="flex items-center justify-between py-4 text-lg text-brand-blue-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 dark:text-white">
+                                  {item.name}
+                                  <ArrowRightIcon
+                                    className="h-4 w-4 text-brand-blue-900/40 dark:text-white/40"
+                                    aria-hidden="true"
+                                  />
+                                </Link>
+                              )}
+                            </li>
+                          );
+                        })}
+                      </ul>
+
+                      <div className="mt-6 flex flex-col gap-3 pb-8">
+                        <a
+                          href={signUpUrl()}
+                          className="inline-flex items-center justify-center rounded-md bg-brand-600 px-5 py-3.5 text-base font-semibold text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2">
+                          Get started
+                        </a>
+                        <a
+                          href={signInUrl()}
+                          className="inline-flex items-center justify-center rounded-md border border-brand-blue-900/15 px-5 py-3.5 text-base font-medium text-brand-blue-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 dark:border-white/20 dark:text-white">
+                          Sign in
+                        </a>
                       </div>
-                    ))}
-                    <a href={signUpUrl()} className="w-full px-6 py-2 mt-3 text-center text-white bg-indigo-600 rounded-md lg:hidden">
-                        Get Started
-                    </a>
-                  </>
-                </Disclosure.Panel>
-            </>
-          )}
-        </Disclosure>
-        
-        {/* menu  */}
-        <div className="hidden text-center xl:flex xl:items-center">
-          <ul className="items-center justify-end flex-1 pt-6 list-none xl:pt-0 xl:flex">
-            {navigation.map((menu) => (
-              <li className="mr-1 nav__item xl:mr-3" key={menu.href}>
-                {menu.children ? (
-                  <Popover className="relative">
-                    <PopoverButton className="inline-flex items-center px-2 py-2 text-base font-normal text-gray-800 no-underline whitespace-nowrap rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 xl:px-3 xl:text-lg">
-                        {menu.name}
-                        <ChevronDownIcon className="w-4 h-4 ml-1" />
-                    </PopoverButton>
-                    <PopoverPanel className="absolute right-0 z-20 w-64 py-2 mt-1 text-left bg-white rounded-md shadow-lg dark:bg-trueGray-800">
-                      {menu.children.map((child) => (
-                        <Link key={child.href} href={child.href} className="block px-4 py-2 text-base font-normal text-gray-500 no-underline rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800">
-                            {child.name}
-                        </Link>
-                      ))}
-                    </PopoverPanel>
-                  </Popover>
-                ) : (
-                  <Link href={menu.href} className="inline-block px-2 py-2 text-base font-normal text-gray-800 no-underline whitespace-nowrap rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800 xl:px-3 xl:text-lg">
-                      {menu.name}
-                  </Link>
-                )}
-              </li>
-            ))}
-          </ul>
+                    </nav>
+                  </Disclosure.Panel>
+                </>
+              )}
+            </Disclosure>
+          </div>
         </div>
-
-      </nav>
-    </div>
+      </header>
+    </>
   );
-}
-
+};

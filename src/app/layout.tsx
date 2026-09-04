@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 
@@ -10,6 +10,13 @@ import { BackToTop } from "@/components/BackToTop";
 
 
 const inter = Inter({ subsets: ["latin"] });
+// Header wordmark only (font-display in tailwind.config.ts) — body copy
+// stays on Inter everywhere else.
+const displayFont = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-display",
+});
 
 export const metadata: Metadata = {
   title: "Kitabu Yetu — Bookkeeping for CHAMAs and SACCOs",
@@ -24,10 +31,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${inter.className} ${displayFont.variable}`}>
         <ThemeProvider attribute="class">
           <Navbar />
-          <div>{children}</div>
+          {/* Navbar is now `fixed`, not `sticky` — this padding is what
+              keeps page content from starting underneath it. Matches the
+              header's own h-16 lg:h-20. */}
+          <main id="main" className="pt-16 lg:pt-20">
+            {children}
+          </main>
           <Footer />
           <PopupWidget />
           <BackToTop />
