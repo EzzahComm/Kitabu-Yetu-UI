@@ -3,7 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import {
+  AnimatePresence,
+  LazyMotion,
+  domAnimation,
+  m,
+  useReducedMotion,
+} from "framer-motion";
 import { Container } from "@/components/Container";
 import { signUpUrl } from "@/lib/app-links";
 import heroImg from "../../public/img/hero.png";
@@ -45,16 +51,36 @@ export const Hero = () => {
     // instead of auto-rotating.
     if (prefersReducedMotion) return;
 
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev === 0 ? 1 : 0));
-    }, ROTATION_MS);
-    return () => clearInterval(timer);
+    let timer: ReturnType<typeof setInterval> | undefined;
+
+    const start = () => {
+      timer = setInterval(() => {
+        setIndex((prev) => (prev === 0 ? 1 : 0));
+      }, ROTATION_MS);
+    };
+    const stop = () => {
+      if (timer) clearInterval(timer);
+      timer = undefined;
+    };
+
+    // Don't burn CPU/battery animating a rotation nobody can see.
+    const handleVisibility = () => {
+      if (document.hidden) stop();
+      else start();
+    };
+
+    start();
+    document.addEventListener("visibilitychange", handleVisibility);
+    return () => {
+      stop();
+      document.removeEventListener("visibilitychange", handleVisibility);
+    };
   }, [prefersReducedMotion]);
 
   const current = HERO_MESSAGES[index];
 
   return (
-    <>
+    <LazyMotion features={domAnimation}>
       <Container className="flex flex-wrap ">
         <div className="flex items-center w-full lg:w-1/2">
           <div className="max-w-2xl mb-8">
@@ -62,8 +88,8 @@ export const Hero = () => {
                 sets the box size during the crossfade — no fixed height,
                 no layout jump once the shorter one settles in. */}
             <div className="grid">
-              <AnimatePresence mode="wait">
-                <motion.div
+              <AnimatePresence>
+                <m.div
                   key={current.id}
                   initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -76,7 +102,7 @@ export const Hero = () => {
                   <p className="pt-5 text-xl font-medium leading-normal text-gray-800 lg:text-xl xl:text-2xl dark:text-gray-200">
                     {current.subtitle}
                   </p>
-                </motion.div>
+                </m.div>
               </AnimatePresence>
             </div>
 
@@ -111,8 +137,8 @@ export const Hero = () => {
         </div>
         <div className="flex items-center justify-center w-full lg:w-1/2">
           <div className="grid">
-            <AnimatePresence mode="wait">
-              <motion.div
+            <AnimatePresence>
+              <m.div
                 key={current.id}
                 initial={{ opacity: 0, x: prefersReducedMotion ? 0 : 40 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -128,7 +154,7 @@ export const Hero = () => {
                   loading="eager"
                   placeholder="blur"
                 />
-              </motion.div>
+              </m.div>
             </AnimatePresence>
           </div>
         </div>
@@ -148,6 +174,6 @@ export const Hero = () => {
           </p>
         </div>
       </Container>
-    </>
+    </LazyMotion>
   );
 };
