@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useState, type FocusEvent } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ThemeChanger from "./DarkSwitch";
@@ -22,6 +23,19 @@ const activeLinkClasses = "text-brand-blue-900 dark:text-white";
 export const Navbar = () => {
   const pathname = usePathname();
   const isActive = (href: string) => pathname === href;
+
+  // Which desktop dropdown (keyed by its item.href) is open. Hover/focus
+  // open and close it directly; this state is what lets a click on one of
+  // its links close it immediately too, and the effect below is a safety
+  // net for navigations that don't change `pathname` at all — e.g. a child
+  // link that's just a hash on the page you're already on, or the browser
+  // back/forward buttons — since the pointer/focus staying put would
+  // otherwise leave a CSS-only dropdown looking stuck open over the new
+  // page.
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+  useEffect(() => {
+    setOpenMenu(null);
+  }, [pathname]);
 
   return (
     <>
@@ -51,21 +65,35 @@ export const Navbar = () => {
                 {navigation.map((item) => {
                   const active = isActive(item.href);
                   const children = item.children;
+                  const isOpen = openMenu === item.href;
                   return (
                     <li
                       key={item.href}
-                      className={children ? "group relative" : undefined}>
+                      className={children ? "relative" : undefined}
+                      {...(children && {
+                        onMouseEnter: () => setOpenMenu(item.href),
+                        onMouseLeave: () => setOpenMenu(null),
+                        onBlur: (e: FocusEvent<HTMLLIElement>) => {
+                          if (!e.currentTarget.contains(e.relatedTarget)) {
+                            setOpenMenu(null);
+                          }
+                        },
+                      })}>
                       {children ? (
                         <>
                           <button
                             type="button"
                             aria-haspopup="menu"
+                            aria-expanded={isOpen}
+                            onFocus={() => setOpenMenu(item.href)}
                             className={`flex items-center gap-1.5 ${linkClasses} ${
                               active ? activeLinkClasses : inactiveLinkClasses
                             }`}>
                             {item.name}
                             <ChevronDownIcon
-                              className="h-3.5 w-3.5 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180"
+                              className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                                isOpen ? "rotate-180" : ""
+                              }`}
                               aria-hidden="true"
                             />
                             {active && (
@@ -76,18 +104,20 @@ export const Navbar = () => {
                             )}
                           </button>
                           {/* Padding (not margin) bridges the gap up to the
-                              button, so the pointer never leaves a `group`
-                              descendant while crossing it — a margin gap
-                              here would close the menu before the pointer
-                              reaches it. Shown on hover *or* focus-within,
-                              so keyboard users tabbing onto the button (or
-                              into the menu itself) get it too. */}
-                          <div className="absolute right-0 top-full z-20 hidden w-64 pt-2 group-hover:block group-focus-within:block">
+                              button, so the pointer never leaves this list
+                              item while crossing it — a margin gap here
+                              would close the menu before the pointer
+                              reaches it. */}
+                          <div
+                            className={`absolute right-0 top-full z-20 w-64 pt-2 ${
+                              isOpen ? "block" : "hidden"
+                            }`}>
                             <div className="rounded-md border border-brand-blue-900/10 bg-paper py-2 text-left shadow-lg dark:border-white/10 dark:bg-trueGray-800">
                               {children.map((child) => (
                                 <Link
                                   key={child.href}
                                   href={child.href}
+                                  onClick={() => setOpenMenu(null)}
                                   className="block rounded-md px-4 py-2 text-sm text-brand-blue-900/80 hover:bg-brand-blue-900/[0.05] hover:text-brand-blue-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 dark:text-gray-300 dark:hover:bg-white/5 dark:hover:text-white">
                                   {child.name}
                                 </Link>
