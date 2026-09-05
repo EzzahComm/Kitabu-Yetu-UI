@@ -13,8 +13,8 @@ import { Benefits } from "@/components/Benefits";
 import { Video } from "@/components/Video";
 import { Cta } from "@/components/Cta";
 
-import benefitOneImg from "../../../public/img/benefit-one.png";
-import benefitTwoImg from "../../../public/img/benefit-two.png";
+import benefitOneImg from "../../../public/img/benefit-one.jpg";
+import benefitTwoImg from "../../../public/img/benefit-two.jpg";
 
 export const metadata: Metadata = {
   title: "How it works — Kitabu Yetu",

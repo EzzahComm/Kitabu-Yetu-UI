@@ -12,14 +12,22 @@ import {
 } from "framer-motion";
 import { Container } from "@/components/Container";
 import { signUpUrl } from "@/lib/app-links";
-import heroImg from "../../public/img/hero.png";
-import benefitTwoImg from "../../public/img/benefit-two.png";
+import heroOneImg from "../../public/img/hero-one.jpg";
+import heroTwoImg from "../../public/img/hero-two.jpg";
 
 /**
  * The two pitches the hero rotates between. Copy for the second slide is
  * lifted verbatim from the `benefitTwo` entry in data.js, so nothing here is
  * a new marketing claim — it's the same line the page already makes further
  * down, just surfaced earlier.
+ *
+ * Images are real photos, licensed for commercial use with no attribution
+ * required — kept here for provenance:
+ * - hero-one.jpg: "Women sitting on a couch" by PICHA Stock, via Pexels
+ *   (Pexels License). https://www.pexels.com/photo/women-sitting-on-a-couch-3894375/
+ * - hero-two.jpg: "A woman smiles while holding a cell phone" by Hassan
+ *   Kibwana, via Unsplash (Unsplash License).
+ *   https://unsplash.com/photos/pkrVTwflG-E
  */
 const HERO_MESSAGES = [
   {
@@ -27,16 +35,16 @@ const HERO_MESSAGES = [
     title: "Run your group. Grow its potential.",
     subtitle:
       "Manage your members, money, investments and communication in one simple platform.",
-    image: heroImg,
-    imageAlt: "Illustration of a group managing their finances together",
+    image: heroOneImg,
+    imageAlt: "A group of women meeting together, laughing and talking",
   },
   {
     id: "savings-pot",
     title: "More than a savings pot",
     subtitle:
       "The group keeps its members informed, puts its money to work, and lets every member check their own record without waiting for a meeting.",
-    image: benefitTwoImg,
-    imageAlt: "Illustration of a member checking their savings on a phone",
+    image: heroTwoImg,
+    imageAlt: "A woman smiling while checking her phone",
   },
 ] as const;
 

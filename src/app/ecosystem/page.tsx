@@ -14,8 +14,8 @@ import { SectionTitle } from "@/components/SectionTitle";
 import { Benefits } from "@/components/Benefits";
 import { Cta } from "@/components/Cta";
 
-import benefitOneImg from "../../../public/img/benefit-one.png";
-import benefitTwoImg from "../../../public/img/benefit-two.png";
+import benefitOneImg from "../../../public/img/benefit-one.jpg";
+import benefitTwoImg from "../../../public/img/benefit-two.jpg";
 
 export const metadata: Metadata = {
   title: "Ecosystem — Kitabu Yetu",
