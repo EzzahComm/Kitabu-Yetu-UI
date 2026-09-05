@@ -3,12 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ThemeChanger from "./DarkSwitch";
 import { BrandLogo } from "./BrandLogo";
-import {
-  Disclosure,
-  Popover,
-  PopoverButton,
-  PopoverPanel,
-} from "@headlessui/react";
+import { Disclosure } from "@headlessui/react";
 import {
   ArrowRightIcon,
   Bars3Icon,
@@ -55,43 +50,51 @@ export const Navbar = () => {
               <ul className="flex items-center gap-8">
                 {navigation.map((item) => {
                   const active = isActive(item.href);
+                  const children = item.children;
                   return (
-                    <li key={item.href}>
-                      {item.children ? (
-                        <Popover className="relative">
-                          <PopoverButton
+                    <li
+                      key={item.href}
+                      className={children ? "group relative" : undefined}>
+                      {children ? (
+                        <>
+                          <button
+                            type="button"
+                            aria-haspopup="menu"
                             className={`flex items-center gap-1.5 ${linkClasses} ${
                               active ? activeLinkClasses : inactiveLinkClasses
                             }`}>
-                            {({ open }) => (
-                              <>
-                                {item.name}
-                                <ChevronDownIcon
-                                  className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                                    open ? "rotate-180" : ""
-                                  }`}
-                                  aria-hidden="true"
-                                />
-                                {active && (
-                                  <span
-                                    aria-hidden="true"
-                                    className="absolute -bottom-1.5 left-0 h-px w-full bg-brand-500"
-                                  />
-                                )}
-                              </>
+                            {item.name}
+                            <ChevronDownIcon
+                              className="h-3.5 w-3.5 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180"
+                              aria-hidden="true"
+                            />
+                            {active && (
+                              <span
+                                aria-hidden="true"
+                                className="absolute -bottom-1.5 left-0 h-px w-full bg-brand-500"
+                              />
                             )}
-                          </PopoverButton>
-                          <PopoverPanel className="absolute right-0 z-20 mt-2 w-64 rounded-md border border-brand-blue-900/10 bg-paper py-2 text-left shadow-lg dark:border-white/10 dark:bg-trueGray-800">
-                            {item.children.map((child) => (
-                              <Link
-                                key={child.href}
-                                href={child.href}
-                                className="block rounded-md px-4 py-2 text-sm text-brand-blue-900/80 hover:bg-brand-blue-900/[0.05] hover:text-brand-blue-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 dark:text-gray-300 dark:hover:bg-white/5 dark:hover:text-white">
-                                {child.name}
-                              </Link>
-                            ))}
-                          </PopoverPanel>
-                        </Popover>
+                          </button>
+                          {/* Padding (not margin) bridges the gap up to the
+                              button, so the pointer never leaves a `group`
+                              descendant while crossing it — a margin gap
+                              here would close the menu before the pointer
+                              reaches it. Shown on hover *or* focus-within,
+                              so keyboard users tabbing onto the button (or
+                              into the menu itself) get it too. */}
+                          <div className="absolute right-0 top-full z-20 hidden w-64 pt-2 group-hover:block group-focus-within:block">
+                            <div className="rounded-md border border-brand-blue-900/10 bg-paper py-2 text-left shadow-lg dark:border-white/10 dark:bg-trueGray-800">
+                              {children.map((child) => (
+                                <Link
+                                  key={child.href}
+                                  href={child.href}
+                                  className="block rounded-md px-4 py-2 text-sm text-brand-blue-900/80 hover:bg-brand-blue-900/[0.05] hover:text-brand-blue-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 dark:text-gray-300 dark:hover:bg-white/5 dark:hover:text-white">
+                                  {child.name}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        </>
                       ) : (
                         <Link
                           href={item.href}
