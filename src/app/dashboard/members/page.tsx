@@ -12,9 +12,11 @@ import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Card } from "@/components/ui/Card";
 import { PageHeader, DataTable } from "@/components/dashboard";
+import { AddMemberModal, type MemberFormData } from "@/components/dashboard/modals/AddMemberModal";
 
 export default function MembersPage() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
   // Mock data
   const allMembers = [
@@ -71,6 +73,12 @@ export default function MembersPage() {
       member.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       member.email.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  const handleAddMember = (data: MemberFormData) => {
+    console.log("Adding member:", data);
+    // TODO: Call API to add member
+    alert(`Member ${data.firstName} ${data.lastName} added successfully!`);
+  };
 
   const columns = [
     {
@@ -134,6 +142,13 @@ export default function MembersPage() {
 
   return (
     <div>
+      {/* Add Member Modal */}
+      <AddMemberModal
+        isOpen={isAddModalOpen}
+        onClose={() => setIsAddModalOpen(false)}
+        onSubmit={handleAddMember}
+      />
+
       {/* Page Header */}
       <PageHeader
         title="Members"
@@ -144,7 +159,12 @@ export default function MembersPage() {
               <IconDownload size={18} />
               Export
             </Button>
-            <Button variant="primary" size="md" className="flex items-center gap-2">
+            <Button
+              variant="primary"
+              size="md"
+              className="flex items-center gap-2"
+              onClick={() => setIsAddModalOpen(true)}
+            >
               <IconPlus size={18} />
               Add Member
             </Button>

@@ -9,3 +9,12 @@ export { StatCard } from "./StatCard";
 export { DataTable } from "./DataTable";
 export { EmptyState } from "./EmptyState";
 export { PageHeader } from "./PageHeader";
+
+// Form components
+export { FormField } from "./FormField";
+export { SelectField } from "./SelectField";
+export { CheckboxField } from "./CheckboxField";
+export { FormGroup } from "./FormGroup";
+
+// Modal component
+export { Modal } from "./Modal";

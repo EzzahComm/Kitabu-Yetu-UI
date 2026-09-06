@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import {
   IconUsers,
@@ -16,8 +17,15 @@ import {
   StatCard,
   DataTable,
 } from "@/components/dashboard";
+import { RecordContributionModal, type ContributionFormData } from "@/components/dashboard/modals";
 
 export default function DashboardPage() {
+  const [isContributionModalOpen, setIsContributionModalOpen] = useState(false);
+
+  const handleRecordContribution = (data: ContributionFormData) => {
+    console.log("Recording contribution:", data);
+    alert(`Contribution of KES ${data.amount} recorded for ${data.memberId}!`);
+  };
   // Mock data
   const kpis = [
     {
@@ -100,6 +108,13 @@ export default function DashboardPage() {
 
   return (
     <div>
+      {/* Record Contribution Modal */}
+      <RecordContributionModal
+        isOpen={isContributionModalOpen}
+        onClose={() => setIsContributionModalOpen(false)}
+        onSubmit={handleRecordContribution}
+      />
+
       {/* Page Header */}
       <PageHeader
         title="Dashboard"
@@ -111,7 +126,11 @@ export default function DashboardPage() {
                 View Members
               </Button>
             </Link>
-            <Button variant="primary" size="md">
+            <Button
+              variant="primary"
+              size="md"
+              onClick={() => setIsContributionModalOpen(true)}
+            >
               + Record Contribution
             </Button>
           </div>
