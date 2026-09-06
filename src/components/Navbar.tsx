@@ -6,11 +6,11 @@ import ThemeChanger from "./DarkSwitch";
 import { BrandLogo } from "./BrandLogo";
 import { Disclosure } from "@headlessui/react";
 import {
-  ArrowRightIcon,
-  Bars3Icon,
-  ChevronDownIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
+  IconArrowRight,
+  IconMenu,
+  IconChevronDown,
+  IconX,
+} from "@tabler/icons-react";
 import { navigation } from "./navigation";
 import { signInUrl, signUpUrl } from "@/lib/app-links";
 
@@ -90,8 +90,9 @@ export const Navbar = () => {
                               active ? activeLinkClasses : inactiveLinkClasses
                             }`}>
                             {item.name}
-                            <ChevronDownIcon
-                              className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                            <IconChevronDown
+                              size={14}
+                              className={`transition-transform duration-200 ${
                                 isOpen ? "rotate-180" : ""
                               }`}
                               aria-hidden="true"
@@ -159,7 +160,7 @@ export const Navbar = () => {
                 href={signUpUrl()}
                 className="group inline-flex items-center gap-2 rounded-md bg-brand-600 px-5 py-2.5 text-[0.9375rem] font-semibold text-white transition-colors hover:bg-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2">
                 Get started
-                <ArrowRightIcon className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+                <IconArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-0.5" />
               </a>
             </div>
 
@@ -176,9 +177,9 @@ export const Navbar = () => {
                         {open ? "Close menu" : "Open menu"}
                       </span>
                       {open ? (
-                        <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                        <IconX size={24} aria-hidden="true" />
                       ) : (
-                        <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+                        <IconMenu size={24} aria-hidden="true" />
                       )}
                     </Disclosure.Button>
                   </div>
@@ -199,8 +200,9 @@ export const Navbar = () => {
                                     <>
                                       <Disclosure.Button className="flex w-full items-center justify-between py-4 text-lg text-brand-blue-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 dark:text-white">
                                         {item.name}
-                                        <ChevronDownIcon
-                                          className={`h-5 w-5 text-brand-blue-900/40 transition-transform duration-200 dark:text-white/40 ${
+                                        <IconChevronDown
+                                          size={20}
+                                          className={`text-brand-blue-900/40 transition-transform duration-200 dark:text-white/40 ${
                                             childOpen ? "rotate-180" : ""
                                           }`}
                                           aria-hidden="true"
@@ -228,8 +230,9 @@ export const Navbar = () => {
                                   aria-current={active ? "page" : undefined}
                                   className="flex items-center justify-between py-4 text-lg text-brand-blue-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 dark:text-white">
                                   {item.name}
-                                  <ArrowRightIcon
-                                    className="h-4 w-4 text-brand-blue-900/40 dark:text-white/40"
+                                  <IconArrowRight
+                                    size={16}
+                                    className="text-brand-blue-900/40 dark:text-white/40"
                                     aria-hidden="true"
                                   />
                                 </Link>

@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import {
-  HeartIcon,
-  BuildingOffice2Icon,
-  ShoppingBagIcon,
-  ClipboardDocumentListIcon,
-  ChartBarSquareIcon,
-  UserGroupIcon,
-  BanknotesIcon,
-  GlobeAltIcon,
-} from "@heroicons/react/24/solid";
+  IconHeart,
+  IconBuildingCommunity,
+  IconShoppingBag,
+  IconChecklist,
+  IconChartBar,
+  IconUsers,
+  IconCash,
+  IconWorld,
+} from "@tabler/icons-react";
 
 import { SectionTitle } from "@/components/SectionTitle";
 import { Benefits } from "@/components/Benefits";
@@ -65,17 +65,17 @@ const donors = {
     {
       title: "Follow the money to the group",
       desc: "Disbursements are recorded against the group that received them, and against the members they reached.",
-      icon: <HeartIcon />,
+      icon: <IconHeart />,
     },
     {
       title: "Reporting off the ledger",
       desc: "The figures in the report are the figures in the books, so nobody rebuilds them in a spreadsheet at the end of a quarter.",
-      icon: <ChartBarSquareIcon />,
+      icon: <IconChartBar />,
     },
     {
       title: "The group keeps its own book",
       desc: "Funding is one part of a group's record, not a separate system the treasurer has to keep in step.",
-      icon: <BanknotesIcon />,
+      icon: <IconCash />,
     },
   ],
 };
@@ -88,17 +88,17 @@ const multigroup = {
     {
       title: "Every group in one view",
       desc: "Linked groups under a single organization account, each keeping its own ledger and its own committee.",
-      icon: <BuildingOffice2Icon />,
+      icon: <IconBuildingCommunity />,
     },
     {
       title: "Staff, not shared logins",
       desc: "Your coordinators get their own accounts and their own access, rather than passing one password around.",
-      icon: <UserGroupIcon />,
+      icon: <IconUsers />,
     },
     {
       title: "A portfolio you can report on",
       desc: "Reports across the groups you support, built from what each group actually recorded.",
-      icon: <GlobeAltIcon />,
+      icon: <IconWorld />,
     },
   ],
 };
@@ -111,17 +111,17 @@ const marketplace = {
     {
       title: "Offers that reach a group, not an individual",
       desc: "A committee decides together, so an offer has to be visible to the whole group rather than one member's phone.",
-      icon: <ShoppingBagIcon />,
+      icon: <IconShoppingBag />,
     },
     {
       title: "Paid for from the group's account",
       desc: "A purchase the group makes is a transaction in the group's book like any other.",
-      icon: <BanknotesIcon />,
+      icon: <IconCash />,
     },
     {
       title: "In progress",
       desc: "This is the newest part of the ecosystem. Talk to us if you want your offer in front of groups as it opens.",
-      icon: <ClipboardDocumentListIcon />,
+      icon: <IconChecklist />,
     },
   ],
 };
@@ -134,17 +134,17 @@ const programs = {
     {
       title: "One programme, many groups",
       desc: "Run a programme across the groups enrolled in it, with each group's participation recorded in its own book.",
-      icon: <ClipboardDocumentListIcon />,
+      icon: <IconChecklist />,
     },
     {
       title: "Disbursements that leave a trail",
       desc: "What went out, to which group, and what it was for — recorded when it happens rather than reconstructed later.",
-      icon: <BanknotesIcon />,
+      icon: <IconCash />,
     },
     {
       title: "Reports the funder can check",
       desc: "Programme reporting built from the groups' ledgers, with the audit trail still attached.",
-      icon: <ChartBarSquareIcon />,
+      icon: <IconChartBar />,
     },
   ],
 };

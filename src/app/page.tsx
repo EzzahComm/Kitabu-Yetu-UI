@@ -1,14 +1,14 @@
 import Link from "next/link";
 import {
-  BanknotesIcon,
-  ArrowTrendingUpIcon,
-  ChatBubbleLeftRightIcon,
-  ChartBarSquareIcon,
-  AcademicCapIcon,
-  BuildingStorefrontIcon,
-  ShieldCheckIcon,
-  DocumentTextIcon,
-} from "@heroicons/react/24/solid";
+  IconCash,
+  IconTrendingUp,
+  IconMessages,
+  IconChartBar,
+  IconSchool,
+  IconBuildingStore,
+  IconShieldCheck,
+  IconDocument,
+} from "@tabler/icons-react";
 
 import { Hero } from "@/components/Hero";
 import { Container } from "@/components/Container";
@@ -138,22 +138,22 @@ const manage = {
     {
       title: "Manage your money",
       desc: "Track members, contributions, savings, loans, welfare, shares, dividends, income and expenses from one reliable financial record.",
-      icon: <BanknotesIcon />,
+      icon: <IconCash size={24} />,
     },
     {
       title: "Track what you're building",
       desc: "Manage farms, rentals, shops, businesses, projects and other investments. See what each activity costs, earns and contributes to the group.",
-      icon: <ArrowTrendingUpIcon />,
+      icon: <IconTrendingUp size={24} />,
     },
     {
       title: "Keep members informed",
       desc: "Send contribution reminders, payment confirmations, announcements and campaigns — while members access their own balances and statements.",
-      icon: <ChatBubbleLeftRightIcon />,
+      icon: <IconMessages size={24} />,
     },
     {
       title: "Make every shilling visible",
       desc: "Know where group money comes from, where it goes and what it is building.",
-      icon: <ChartBarSquareIcon />,
+      icon: <IconChartBar size={24} />,
     },
   ],
 };
@@ -166,27 +166,27 @@ const ecosystem = {
     {
       title: "Funding",
       desc: "Connect with potential donors, development partners and funding opportunities for groups and community projects.",
-      icon: <BanknotesIcon />,
+      icon: <IconCash size={24} />,
     },
     {
       title: "Financial products",
       desc: "Discover relevant loans, insurance and other financial products for groups and their members.",
-      icon: <ShieldCheckIcon />,
+      icon: <IconShieldCheck size={24} />,
     },
     {
       title: "Professional knowledge",
       desc: "Access information, training and practical guidance from professionals in finance, agriculture, investment, entrepreneurship, governance and other areas.",
-      icon: <AcademicCapIcon />,
+      icon: <IconSchool size={24} />,
     },
     {
       title: "Markets & services",
       desc: "Discover potential markets, suppliers, service providers and business opportunities that can support your group's activities.",
-      icon: <BuildingStorefrontIcon />,
+      icon: <IconBuildingStore size={24} />,
     },
     {
       title: "Build your track record",
       desc: "Better records help your group build a clearer picture of its financial health, activities and impact.",
-      icon: <DocumentTextIcon />,
+      icon: <IconDocument size={24} />,
     },
   ],
   cta: {

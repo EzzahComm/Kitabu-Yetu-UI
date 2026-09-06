@@ -20,10 +20,10 @@ export const navigation: NavItem[] = [
     name: "Products",
     href: "/products",
     children: [
-      { name: "Bookkeeper", href: "/products#bookkeeper" },
-      { name: "Chama Reminder", href: "/products#chama-reminder" },
-      { name: "Fundraise / Changi$ha", href: "/products#fundraise" },
-      { name: "Enterprise", href: "/products#enterprise" },
+      { name: "Bookkeeper", href: "/bookkeeper" },
+      { name: "Chama Reminder", href: "/chama-reminder" },
+      { name: "Fundraise", href: "/fundraise" },
+      { name: "Enterprise", href: "/enterprise" },
     ],
   },
   {

@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Container } from "@/components/Container";
-import { CheckIcon } from "@heroicons/react/24/solid";
+import { IconCheck } from "@tabler/icons-react";
 import { signUpUrl } from "@/lib/app-links";
 
 interface Plan {
@@ -58,7 +58,7 @@ const PlanCard = ({ plan }: { plan: Plan }) => (
       {plan.features.map((feature) => (
         <div key={feature} className="flex items-start mt-4 space-x-3">
           <div className="flex items-center justify-center flex-shrink-0 mt-1 bg-indigo-500 rounded-md w-5 h-5">
-            <CheckIcon className="w-4 h-4 text-indigo-50" />
+            <IconCheck size={16} className="text-indigo-50" />
           </div>
           <p className="text-gray-500 dark:text-gray-400">{feature}</p>
         </div>

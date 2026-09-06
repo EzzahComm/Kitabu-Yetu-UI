@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 import {
-  BookOpenIcon,
-  DevicePhoneMobileIcon,
-  ChartBarSquareIcon,
-  UserGroupIcon,
-  CalendarDaysIcon,
-  ArrowTrendingUpIcon,
-  BanknotesIcon,
-  HandRaisedIcon,
-  DocumentTextIcon,
-  BuildingOffice2Icon,
-  CodeBracketIcon,
-  PaintBrushIcon,
-} from "@heroicons/react/24/solid";
+  IconBook,
+  IconDeviceMobile,
+  IconChartBar,
+  IconUsers,
+  IconCalendarDots,
+  IconTrendingUp,
+  IconCash,
+  IconHand,
+  IconDocument,
+  IconBuildingCommunity,
+  IconCode,
+  IconBrush,
+} from "@tabler/icons-react";
 
 import { SectionTitle } from "@/components/SectionTitle";
 import { Benefits } from "@/components/Benefits";
@@ -70,17 +70,17 @@ const bookkeeper = {
     {
       title: "Members and their money",
       desc: "One register of members, their roles and their financial activity, current the moment a payment lands.",
-      icon: <UserGroupIcon />,
+      icon: <IconUsers />,
     },
     {
       title: "M-Pesa in and out",
       desc: "PayBill and STK collections post against the right member; loans, welfare and dividends go out by B2C.",
-      icon: <DevicePhoneMobileIcon />,
+      icon: <IconDeviceMobile />,
     },
     {
       title: "Close the month off the ledger",
       desc: "Statements, trial balance and member reports come straight from the books, and a closed period stops changing.",
-      icon: <BookOpenIcon />,
+      icon: <IconBook />,
     },
   ],
   cta: {
@@ -97,17 +97,17 @@ const chamaReminder = {
     {
       title: "A member list that is yours",
       desc: "Names, numbers and groups in one place, ready to send to without rebuilding the list every time.",
-      icon: <ChartBarSquareIcon />,
+      icon: <IconChartBar />,
     },
     {
       title: "Reminders that go out on time",
       desc: "Scheduled campaigns and message templates, so the reminder does not depend on somebody remembering.",
-      icon: <CalendarDaysIcon />,
+      icon: <IconCalendarDots />,
     },
     {
       title: "Move up when you are ready",
       desc: "Buy a Kitabu Yetu plan and your chart of accounts is set up then; group, members and message history carry over unchanged.",
-      icon: <ArrowTrendingUpIcon />,
+      icon: <IconTrendingUp />,
     },
   ],
   cta: {
@@ -124,17 +124,17 @@ const fundraise = {
     {
       title: "One target, one record",
       desc: "Every contribution to the drive is recorded against the campaign rather than mixed into the month's collections.",
-      icon: <BanknotesIcon />,
+      icon: <IconCash />,
     },
     {
       title: "Anyone can give",
       desc: "A well-wisher who is not a member can contribute, and the payment still lands where it belongs.",
-      icon: <HandRaisedIcon />,
+      icon: <IconHand />,
     },
     {
       title: "Receipts and a running total",
       desc: "Contributors get a confirmation, and the committee sees where the drive stands without adding up messages.",
-      icon: <DocumentTextIcon />,
+      icon: <IconDocument />,
     },
   ],
   cta: {
@@ -151,22 +151,22 @@ const enterprise = {
     {
       title: "Linked groups in one portal",
       desc: "Every group you support in a single view, with staff accounts and reports that read off the same ledgers.",
-      icon: <BuildingOffice2Icon />,
+      icon: <IconBuildingCommunity />,
     },
     {
       title: "Collect into your own PayBill",
       desc: "Enterprise groups collect into their own PayBill rather than through the Kitabu Yetu one.",
-      icon: <DevicePhoneMobileIcon />,
+      icon: <IconDeviceMobile />,
     },
     {
       title: "API access",
       desc: "Connect the portal to the systems your organization already runs.",
-      icon: <CodeBracketIcon />,
+      icon: <IconCode />,
     },
     {
       title: "White-label branding",
       desc: "Your logo and your primary colour on the surface your groups use every day.",
-      icon: <PaintBrushIcon />,
+      icon: <IconBrush />,
     },
   ],
   cta: {

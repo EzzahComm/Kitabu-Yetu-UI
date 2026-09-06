@@ -91,6 +91,105 @@ const config: Config = {
         // Off-white header/panel background, a shade warmer than pure
         // white to read as "paper" rather than a stark white bar.
         paper: "#fdfcfa",
+
+        // SEMANTIC COLOR PALETTE FOR KITABU YETU SaaS
+        // Primary: Trustworthy blue for financial operations
+        primary: {
+          50: "#EFF6FF",
+          100: "#DBEAFE",
+          200: "#BFDBFE",
+          300: "#93C5FD",
+          400: "#3B82F6",
+          500: "#2563EB", // Main brand color
+          600: "#1D4ED8",
+          700: "#1B5E9B",
+          800: "#1E40AF",
+          900: "#0F3F6D",
+        },
+        // Accent: Community green for positive actions
+        accent: {
+          50: "#DCFCE7",
+          100: "#BBFBBC",
+          500: "#22C55E",
+          600: "#16A34A",
+          700: "#15803D",
+          800: "#166534",
+          900: "#132E25",
+        },
+        // Functional colors
+        success: {
+          50: "#F0FDF4",
+          500: "#22C55E",
+          600: "#16A34A",
+          700: "#15803D",
+        },
+        warning: {
+          50: "#FFFBEB",
+          500: "#F59E0B",
+          600: "#D97706",
+          700: "#B45309",
+        },
+        error: {
+          50: "#FEF2F2",
+          500: "#EF4444",
+          600: "#DC2626",
+          700: "#B91C1C",
+        },
+        // Semantic neutral/gray
+        slate: {
+          50: "#F8FAFC",
+          100: "#F1F5F9",
+          200: "#E2E8F0",
+          300: "#CBD5E1",
+          400: "#94A3B8",
+          500: "#64748B",
+          600: "#475569",
+          700: "#334155",
+          800: "#1E293B",
+          900: "#0F172A",
+        },
+      },
+      spacing: {
+        xs: "4px",
+        sm: "8px",
+        md: "12px",
+        base: "16px",
+        lg: "20px",
+        xl: "24px",
+        "2xl": "32px",
+        "3xl": "40px",
+        "4xl": "48px",
+        "5xl": "64px",
+      },
+      fontSize: {
+        xs: ["12px", { lineHeight: "18px", letterSpacing: "0px" }],
+        sm: ["14px", { lineHeight: "22px", letterSpacing: "0.25px" }],
+        base: ["16px", { lineHeight: "24px", letterSpacing: "0.5px" }],
+        lg: ["18px", { lineHeight: "26px", letterSpacing: "0px" }],
+        xl: ["20px", { lineHeight: "28px", letterSpacing: "0px" }],
+        "2xl": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em" }],
+        "3xl": ["28px", { lineHeight: "36px", letterSpacing: "-0.01em" }],
+        "4xl": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em" }],
+      },
+      boxShadow: {
+        xs: "0 1px 2px rgba(0, 0, 0, 0.05)",
+        sm: "0 1px 2px rgba(0, 0, 0, 0.05)",
+        DEFAULT: "0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06)",
+        md: "0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06)",
+        lg: "0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05)",
+        xl: "0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04)",
+      },
+      borderRadius: {
+        sm: "4px",
+        DEFAULT: "8px",
+        md: "8px",
+        lg: "12px",
+        xl: "16px",
+      },
+      transitionDuration: {
+        150: "150ms",
+        200: "200ms",
+        300: "300ms",
       },
     },
     fontFamily: {

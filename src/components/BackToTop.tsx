@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { ArrowUpIcon } from "@heroicons/react/24/solid";
+import { IconArrowUp } from "@tabler/icons-react";
 
 /**
  * Scroll-to-top control. Sits above the contact widget in the bottom-right
@@ -42,7 +42,7 @@ export function BackToTop() {
         visible ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
     >
-      <ArrowUpIcon className="w-5 h-5" />
+      <IconArrowUp size={20} />
     </button>
   );
 }
