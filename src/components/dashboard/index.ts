@@ -18,3 +18,7 @@ export { FormGroup } from "./FormGroup";
 
 // Modal component
 export { Modal } from "./Modal";
+
+// Advanced components
+export { AdvancedDataTable } from "./AdvancedDataTable";
+export { DeleteConfirmationDialog } from "./DeleteConfirmationDialog";

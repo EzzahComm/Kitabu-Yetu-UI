@@ -1,21 +1,26 @@
 "use client";
 
 import { useState } from "react";
-import { IconPlus, IconTrendingDown, IconAlertCircle } from "@tabler/icons-react";
+import { IconPlus, IconTrendingDown, IconAlertCircle, IconEdit, IconTrash } from "@tabler/icons-react";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import {
   PageHeader,
   KPICard,
-  DataTable,
+  AdvancedDataTable,
   EmptyState,
+  DeleteConfirmationDialog,
 } from "@/components/dashboard";
+import { EditLoanModal, type LoanFormData } from "@/components/dashboard/modals/EditLoanModal";
 
 export default function LoansPage() {
   const [activeTab, setActiveTab] = useState<"active" | "pending" | "defaulted">(
     "active"
   );
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
+  const [selectedLoan, setSelectedLoan] = useState<any>(null);
 
   // Mock data
   const allLoans = [
@@ -82,10 +87,22 @@ export default function LoansPage() {
     100
   ).toFixed(1);
 
+  const handleEditLoan = (loanData: LoanFormData) => {
+    console.log("Updating loan:", loanData);
+    alert(`Loan updated for ${loanData.memberName}!`);
+    setIsEditModalOpen(false);
+  };
+
+  const handleDeleteLoan = () => {
+    console.log("Deleting loan:", selectedLoan.id);
+    alert(`Loan ${selectedLoan.id} deleted!`);
+    setIsDeleteDialogOpen(false);
+  };
+
   const columns = [
-    { key: "memberName", header: "Member Name", className: "font-medium" },
-    { key: "amount", header: "Original Amount (KES)", className: "text-right" },
-    { key: "balance", header: "Outstanding (KES)", className: "text-right" },
+    { key: "memberName", header: "Member Name", className: "font-medium", sortable: true },
+    { key: "amount", header: "Original Amount (KES)", className: "text-right", sortable: true },
+    { key: "balance", header: "Outstanding (KES)", className: "text-right", sortable: true },
     {
       key: "interestRate",
       header: "Rate",
@@ -94,6 +111,7 @@ export default function LoansPage() {
     {
       key: "dueDate",
       header: "Due Date",
+      sortable: true,
     },
     {
       key: "status",
@@ -113,10 +131,63 @@ export default function LoansPage() {
         </Badge>
       ),
     },
+    {
+      key: "actions",
+      header: "Actions",
+      render: (_, row: any) => (
+        <div className="flex gap-2">
+          <button
+            onClick={() => {
+              setSelectedLoan(row);
+              setIsEditModalOpen(true);
+            }}
+            className="p-1.5 hover:bg-gray-200 dark:hover:bg-gray-700 rounded transition-colors text-gray-600 dark:text-gray-400"
+            aria-label="Edit"
+          >
+            <IconEdit size={18} />
+          </button>
+          <button
+            onClick={() => {
+              setSelectedLoan(row);
+              setIsDeleteDialogOpen(true);
+            }}
+            className="p-1.5 hover:bg-error-100 dark:hover:bg-error-900/30 rounded transition-colors text-error-600 dark:text-error-400"
+            aria-label="Delete"
+          >
+            <IconTrash size={18} />
+          </button>
+        </div>
+      ),
+    },
   ];
 
   return (
     <div>
+      {/* Modals and Dialogs */}
+      <EditLoanModal
+        isOpen={isEditModalOpen}
+        loanId={selectedLoan?.id}
+        initialData={selectedLoan ? {
+          memberName: selectedLoan.memberName,
+          originalAmount: selectedLoan.amount.replace(/,/g, ""),
+          interestRate: selectedLoan.interestRate.replace("%", ""),
+          status: selectedLoan.status.toLowerCase(),
+          dueDate: selectedLoan.dueDate,
+          notes: "",
+        } : undefined}
+        onClose={() => setIsEditModalOpen(false)}
+        onSubmit={handleEditLoan}
+      />
+
+      <DeleteConfirmationDialog
+        isOpen={isDeleteDialogOpen}
+        title="Delete Loan"
+        message="Are you sure you want to delete this loan? This action cannot be undone."
+        itemName={selectedLoan ? `Loan ${selectedLoan.id} - ${selectedLoan.memberName}` : undefined}
+        onClose={() => setIsDeleteDialogOpen(false)}
+        onConfirm={handleDeleteLoan}
+      />
+
       {/* Page Header */}
       <PageHeader
         title="Loans"
@@ -196,7 +267,11 @@ export default function LoansPage() {
       <Card>
         <Card.Content>
           {filteredLoans.length > 0 ? (
-            <DataTable columns={columns} data={filteredLoans} />
+            <AdvancedDataTable
+              columns={columns}
+              data={filteredLoans}
+              pageSize={10}
+            />
           ) : (
             <EmptyState
               title="No loans in this category"
