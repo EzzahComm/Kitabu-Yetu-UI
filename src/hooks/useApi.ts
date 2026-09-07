@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { apiClient, type endpoints } from "@/services/api";
 
 interface UseApiState<T> {
@@ -98,7 +98,7 @@ export function useFetch<T = any>(
   const api = useApi<T>();
 
   // Fetch on mount and when dependencies change
-  React.useEffect(() => {
+  useEffect(() => {
     api.execute(fetchFn);
   }, dependencies);
 

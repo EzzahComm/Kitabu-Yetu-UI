@@ -5,7 +5,7 @@ import {
   IconBell,
   IconAlertCircle,
   IconCheck,
-  IconInfo,
+  IconInfoCircle,
   IconX,
 } from "@tabler/icons-react";
 import { Card } from "@/components/ui/Card";
@@ -86,7 +86,7 @@ export default function NotificationsPage() {
       case "success":
         return <IconCheck size={20} className={`${baseClasses} text-success-600 dark:text-success-400`} />;
       case "info":
-        return <IconInfo size={20} className={`${baseClasses} text-info-600 dark:text-info-400`} />;
+        return <IconInfoCircle size={20} className={`${baseClasses} text-info-600 dark:text-info-400`} />;
       default:
         return <IconBell size={20} className={baseClasses} />;
     }

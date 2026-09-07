@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { IconChevronUp, IconChevronDown, IconArrowUpDown } from "@tabler/icons-react";
+import { IconChevronUp, IconChevronDown, IconArrowsUpDown } from "@tabler/icons-react";
 import { Button } from "@/components/ui/Button";
 
 interface ColumnDef {
@@ -76,7 +76,7 @@ export function AdvancedDataTable({
   // Get sort icon for column
   const getSortIcon = (key: string) => {
     if (sortKey !== key) {
-      return <IconArrowUpDown size={16} className="text-gray-400" />;
+      return <IconArrowsUpDown size={16} className="text-gray-400" />;
     }
     if (sortOrder === "asc") {
       return <IconChevronUp size={16} className="text-primary-600 dark:text-primary-400" />;

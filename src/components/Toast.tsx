@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import { IconCheck, IconX, IconAlertCircle, IconInfo } from "@tabler/icons-react";
+import { IconCheck, IconX, IconAlertCircle, IconInfoCircle } from "@tabler/icons-react";
 
 export type ToastType = "success" | "error" | "warning" | "info";
 
@@ -26,24 +26,25 @@ interface ToastContextType {
 export function ToastContainer() {
   const [toasts, setToasts] = useState<Toast[]>([]);
 
-  const addToast = useCallback((toast: Omit<Toast, "id">) => {
-    const id = Math.random().toString(36).substr(2, 9);
-    const newToast: Toast = { ...toast, id, duration: toast.duration ?? 3000 };
-
-    setToasts((prev) => [...prev, newToast]);
-
-    if (newToast.duration > 0) {
-      setTimeout(() => {
-        removeToast(id);
-      }, newToast.duration);
-    }
-
-    return id;
-  }, []);
-
   const removeToast = useCallback((id: string) => {
     setToasts((prev) => prev.filter((t) => t.id !== id));
   }, []);
+
+  const addToast = useCallback((toast: Omit<Toast, "id">) => {
+    const id = Math.random().toString(36).substr(2, 9);
+    const duration = toast.duration ?? 3000;
+    const newToast: Toast = { ...toast, id, duration };
+
+    setToasts((prev) => [...prev, newToast]);
+
+    if (duration > 0) {
+      setTimeout(() => {
+        removeToast(id);
+      }, duration);
+    }
+
+    return id;
+  }, [removeToast]);
 
   const getIcon = (type: ToastType) => {
     const iconProps = { size: 20, className: "flex-shrink-0" };
@@ -63,7 +64,7 @@ export function ToastContainer() {
       case "info":
       default:
         return (
-          <IconInfo {...iconProps} className="text-info-600 dark:text-info-400" />
+          <IconInfoCircle {...iconProps} className="text-info-600 dark:text-info-400" />
         );
     }
   };

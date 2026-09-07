@@ -102,5 +102,15 @@ const CardFooter = React.forwardRef<HTMLDivElement, CardFooterProps>(
 
 CardFooter.displayName = "CardFooter";
 
-export { Card, CardHeader, CardContent, CardFooter };
-export default Card;
+const CompoundCard = Card as typeof Card & {
+  Header: typeof CardHeader;
+  Content: typeof CardContent;
+  Footer: typeof CardFooter;
+};
+
+CompoundCard.Header = CardHeader;
+CompoundCard.Content = CardContent;
+CompoundCard.Footer = CardFooter;
+
+export { CompoundCard as Card, CardHeader, CardContent, CardFooter };
+export default CompoundCard;

@@ -3,7 +3,7 @@ import React from "react";
 interface ColumnDef {
   key: string;
   header: string;
-  render?: (value: any) => React.ReactNode;
+  render?: (value: any, row: Record<string, any>) => React.ReactNode;
   className?: string;
 }
 
@@ -66,7 +66,7 @@ export function DataTable({
                   }`}
                 >
                   {column.render
-                    ? column.render(row[column.key])
+                    ? column.render(row[column.key], row)
                     : row[column.key]}
                 </td>
               ))}

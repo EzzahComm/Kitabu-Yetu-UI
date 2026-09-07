@@ -134,7 +134,7 @@ export default function LoansPage() {
     {
       key: "actions",
       header: "Actions",
-      render: (_, row: any) => (
+      render: (_value: unknown, row: any) => (
         <div className="flex gap-2">
           <button
             onClick={() => {

@@ -20,7 +20,7 @@ import {
   IconBell,
   IconTarget,
   IconGift,
-  IconUsers2,
+  IconUsersGroup,
   IconUserCircle,
   IconSwitchHorizontal,
   IconSettings,
@@ -204,7 +204,7 @@ export function Sidebar({ open, onClose }: SidebarProps) {
               <div className="space-y-1">
                 <NavLink
                   href="/dashboard/crm/contacts"
-                  icon={IconUsers2}
+                  icon={IconUsersGroup}
                   label="Contacts"
                 />
               </div>

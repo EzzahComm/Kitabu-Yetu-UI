@@ -5,6 +5,7 @@ interface FormFieldProps {
   label: string;
   name: string;
   type?: string;
+  step?: number | string;
   value: string | number;
   onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   placeholder?: string;
@@ -24,6 +25,7 @@ export function FormField({
   label,
   name,
   type = "text",
+  step,
   value,
   onChange,
   placeholder,
@@ -67,6 +69,7 @@ export function FormField({
           id={name}
           name={name}
           type={type}
+          step={step}
           value={value}
           onChange={onChange}
           placeholder={placeholder}

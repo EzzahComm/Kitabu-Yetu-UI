@@ -7,7 +7,7 @@ import {
   IconSchool,
   IconBuildingStore,
   IconShieldCheck,
-  IconDocument,
+  IconFileText,
 } from "@tabler/icons-react";
 
 import { Hero } from "@/components/Hero";
@@ -186,7 +186,7 @@ const ecosystem = {
     {
       title: "Build your track record",
       desc: "Better records help your group build a clearer picture of its financial health, activities and impact.",
-      icon: <IconDocument size={24} />,
+      icon: <IconFileText size={24} />,
     },
   ],
   cta: {

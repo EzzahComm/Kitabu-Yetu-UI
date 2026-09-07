@@ -4,11 +4,11 @@ import {
   IconDeviceMobile,
   IconChartBar,
   IconUsers,
-  IconCalendarDots,
+  IconCalendarDot,
   IconTrendingUp,
   IconCash,
-  IconHand,
-  IconDocument,
+  IconHandStop,
+  IconFileText,
   IconBuildingCommunity,
   IconCode,
   IconBrush,
@@ -102,7 +102,7 @@ const chamaReminder = {
     {
       title: "Reminders that go out on time",
       desc: "Scheduled campaigns and message templates, so the reminder does not depend on somebody remembering.",
-      icon: <IconCalendarDots />,
+      icon: <IconCalendarDot />,
     },
     {
       title: "Move up when you are ready",
@@ -129,12 +129,12 @@ const fundraise = {
     {
       title: "Anyone can give",
       desc: "A well-wisher who is not a member can contribute, and the payment still lands where it belongs.",
-      icon: <IconHand />,
+      icon: <IconHandStop />,
     },
     {
       title: "Receipts and a running total",
       desc: "Contributors get a confirmation, and the committee sees where the drive stands without adding up messages.",
-      icon: <IconDocument />,
+      icon: <IconFileText />,
     },
   ],
   cta: {
