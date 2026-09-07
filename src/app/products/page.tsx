@@ -19,8 +19,10 @@ import { Benefits } from "@/components/Benefits";
 import { Cta } from "@/components/Cta";
 import { signUpUrl } from "@/lib/app-links";
 
-import benefitOneImg from "../../../public/img/benefit-one.jpg";
-import benefitTwoImg from "../../../public/img/benefit-two.jpg";
+import bookkeeperImg from "../../../public/img/bookkeeper.jpg";
+import chamaReminderImg from "../../../public/img/chama-reminder.jpg";
+import fundraiseImg from "../../../public/img/fundraise.jpg";
+import enterpriseImg from "../../../public/img/enterprise.jpg";
 
 export const metadata: Metadata = {
   title: "Products — Kitabu Yetu",
@@ -66,7 +68,7 @@ export default function ProductsPage() {
 const bookkeeper = {
   title: "Bookkeeper — the full book",
   desc: "Members, savings, contributions, loans, welfare, shares and dividends, posted to a double-entry ledger that has to balance before it saves.",
-  image: benefitOneImg,
+  image: bookkeeperImg,
   bullets: [
     {
       title: "Members and their money",
@@ -93,7 +95,7 @@ const bookkeeper = {
 const chamaReminder = {
   title: "Chama Reminder — just the messaging",
   desc: "Keep your member list and reach everyone by SMS: contribution reminders, birthday greetings and group announcements, with no ledger to set up.",
-  image: benefitTwoImg,
+  image: chamaReminderImg,
   bullets: [
     {
       title: "A member list that is yours",
@@ -120,7 +122,7 @@ const chamaReminder = {
 const fundraise = {
   title: "Fundraise / Changi$ha — a drive the group can account for",
   desc: "A fundraiser with its own target and its own record, so what came in for the drive never has to be picked back out of the group's ordinary contributions.",
-  image: benefitOneImg,
+  image: fundraiseImg,
   bullets: [
     {
       title: "One target, one record",
@@ -147,7 +149,7 @@ const fundraise = {
 const enterprise = {
   title: "Enterprise — one connected view across the groups you support",
   desc: "For NGOs, networks and organizations running many groups at once: linked groups under a single account, with pricing agreed across the portfolio.",
-  image: benefitTwoImg,
+  image: enterpriseImg,
   bullets: [
     {
       title: "Linked groups in one portal",

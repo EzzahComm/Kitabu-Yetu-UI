@@ -18,7 +18,7 @@ import { Benefits } from "@/components/Benefits";
 import { Cta } from "@/components/Cta";
 import { signUpUrl } from "@/lib/app-links";
 
-import benefitImg from "../../../public/img/benefit-one.jpg";
+import benefitImg from "../../../public/img/bookkeeper.jpg";
 
 export const metadata: Metadata = {
   title: "Kitabu Yetu Bookkeeper — Group Financial Management",

@@ -17,7 +17,7 @@ import { Benefits } from "@/components/Benefits";
 import { Cta } from "@/components/Cta";
 import { signUpUrl } from "@/lib/app-links";
 
-import benefitImg from "../../../public/img/benefit-two.jpg";
+import benefitImg from "../../../public/img/chama-reminder.jpg";
 
 export const metadata: Metadata = {
   title: "Chama Reminder — SMS Communication for Groups",

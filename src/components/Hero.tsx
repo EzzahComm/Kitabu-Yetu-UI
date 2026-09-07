@@ -12,8 +12,10 @@ import {
 } from "framer-motion";
 import { Container } from "@/components/Container";
 import { signUpUrl } from "@/lib/app-links";
-import heroOneImg from "../../public/img/hero-one.jpg";
-import heroTwoImg from "../../public/img/hero-two.jpg";
+import bookkeeperImg from "../../public/img/bookkeeper.jpg";
+import chamaReminderImg from "../../public/img/chama-reminder.jpg";
+import fundraiseImg from "../../public/img/fundraise.jpg";
+import enterpriseImg from "../../public/img/enterprise.jpg";
 
 /**
  * The four product pillars rotate through the home hero so the platform is
@@ -21,11 +23,7 @@ import heroTwoImg from "../../public/img/hero-two.jpg";
  *
  * Images are real photos, licensed for commercial use with no attribution
  * required — kept here for provenance:
- * - hero-one.jpg: "Women sitting on a couch" by PICHA Stock, via Pexels
- *   (Pexels License). https://www.pexels.com/photo/women-sitting-on-a-couch-3894375/
- * - hero-two.jpg: "A woman smiles while holding a cell phone" by Hassan
- *   Kibwana, via Unsplash (Unsplash License).
- *   https://unsplash.com/photos/pkrVTwflG-E
+ * Product photography sources are recorded in public/img/IMAGE_SOURCES.md.
  */
 const HERO_MESSAGES = [
   {
@@ -34,7 +32,7 @@ const HERO_MESSAGES = [
     title: "Keep the whole group book in one place.",
     subtitle:
       "Members, contributions, savings, loans, welfare and M-Pesa on one reliable record.",
-    image: heroOneImg,
+    image: bookkeeperImg,
     imageAlt: "A group of women meeting together, laughing and talking",
   },
   {
@@ -43,7 +41,7 @@ const HERO_MESSAGES = [
     title: "Keep every member in the conversation.",
     subtitle:
       "Send contribution reminders, meeting notices and updates by SMS, without rebuilding your list.",
-    image: heroTwoImg,
+    image: chamaReminderImg,
     imageAlt: "A woman smiling while checking her phone",
   },
   {
@@ -52,7 +50,7 @@ const HERO_MESSAGES = [
     title: "Turn a shared idea into a funded project.",
     subtitle:
       "Create a campaign, track every contribution and keep project money separate from ordinary group funds.",
-    image: heroOneImg,
+    image: fundraiseImg,
     imageAlt: "Community members meeting around a shared project",
   },
   {
@@ -61,7 +59,7 @@ const HERO_MESSAGES = [
     title: "See the portfolio. Support every group.",
     subtitle:
       "Give organizations one accountable view across programmes, groups, members and financial activity.",
-    image: heroTwoImg,
+    image: enterpriseImg,
     imageAlt: "A community leader reviewing information on a phone",
   },
 ] as const;

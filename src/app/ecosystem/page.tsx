@@ -14,8 +14,10 @@ import { SectionTitle } from "@/components/SectionTitle";
 import { Benefits } from "@/components/Benefits";
 import { Cta } from "@/components/Cta";
 
-import benefitOneImg from "../../../public/img/benefit-one.jpg";
-import benefitTwoImg from "../../../public/img/benefit-two.jpg";
+import donorImg from "../../../public/img/benefit-one.jpg";
+import multigroupImg from "../../../public/img/enterprise.jpg";
+import marketplaceImg from "../../../public/img/fundraise.jpg";
+import programsImg from "../../../public/img/benefit-two.jpg";
 
 export const metadata: Metadata = {
   title: "Ecosystem — Kitabu Yetu",
@@ -61,7 +63,7 @@ export default function EcosystemPage() {
 const donors = {
   title: "Donors",
   desc: "Money given to a group should be traceable to what it did there. Donors see the group's own records rather than a summary written for them.",
-  image: benefitOneImg,
+  image: donorImg,
   bullets: [
     {
       title: "Follow the money to the group",
@@ -84,7 +86,7 @@ const donors = {
 const multigroup = {
   title: "Multigroup Organizations",
   desc: "NGOs, networks, church bodies and apex organizations that support many groups at once, from one account.",
-  image: benefitTwoImg,
+  image: multigroupImg,
   bullets: [
     {
       title: "Every group in one view",
@@ -107,7 +109,7 @@ const multigroup = {
 const marketplace = {
   title: "Marketplace",
   desc: "Groups already buy things together — inputs, stock, services, insurance. The marketplace is where those offers meet the groups, and it is the part of the ecosystem still being built.",
-  image: benefitOneImg,
+  image: marketplaceImg,
   bullets: [
     {
       title: "Offers that reach a group, not an individual",
@@ -130,7 +132,7 @@ const marketplace = {
 const programs = {
   title: "Programs",
   desc: "A funded programme running across many groups: its own rules, its own disbursements, and reporting that does not depend on chasing every group for numbers.",
-  image: benefitTwoImg,
+  image: programsImg,
   bullets: [
     {
       title: "One programme, many groups",

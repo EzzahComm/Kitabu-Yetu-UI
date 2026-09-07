@@ -13,8 +13,8 @@ import { Benefits } from "@/components/Benefits";
 import { Video } from "@/components/Video";
 import { Cta } from "@/components/Cta";
 
-import benefitOneImg from "../../../public/img/benefit-one.jpg";
-import benefitTwoImg from "../../../public/img/benefit-two.jpg";
+import paymentImg from "../../../public/img/fundraise.jpg";
+import recordImg from "../../../public/img/bookkeeper.jpg";
 
 export const metadata: Metadata = {
   title: "How it works — Kitabu Yetu",
@@ -49,7 +49,7 @@ export default function HowItWorksPage() {
 const theFlow = {
   title: "Three steps, and none of them are yours",
   desc: "A member pays the way they already pay. Everything after that happens because the payment happened.",
-  image: benefitOneImg,
+  image: paymentImg,
   bullets: [
     {
       title: "Member pays",
@@ -72,7 +72,7 @@ const theFlow = {
 const theEdges = {
   title: "What it will not do",
   desc: "A payment in the wrong member's account is a far worse problem than a payment in a queue.",
-  image: benefitTwoImg,
+  image: recordImg,
   bullets: [
     {
       title: "It never guesses",
