@@ -47,8 +47,8 @@ export function ContactForm() {
     `w-full px-3 py-2 text-gray-600 placeholder-gray-300 bg-white border rounded-md focus:outline-none focus:ring dark:bg-trueGray-800 dark:text-gray-300 dark:placeholder-gray-500 ${
       hasError
         ? "border-red-600 focus:border-red-600 ring-red-100"
-        : "border-gray-300 dark:border-trueGray-700 focus:border-indigo-600 ring-indigo-100"
-    }`;
+        : "border-gray-300 dark:border-trueGray-700 focus:border-brand-600 ring-brand-100"}`;
+
 
   if (isSubmitSuccessful && isSuccess) {
     return (
@@ -103,7 +103,7 @@ export function ContactForm() {
             className={inputClass(!!errors.name)}
           />
           {errors.name && (
-            <div className="mt-1 text-sm text-red-400">{errors.name.message as string}</div>
+            <div className="mt-1 text-sm text-red-600" role="alert">{errors.name.message as string}</div>
           )}
         </div>
 
@@ -122,7 +122,7 @@ export function ContactForm() {
             className={inputClass(!!errors.email)}
           />
           {errors.email && (
-            <div className="mt-1 text-sm text-red-400">{errors.email.message as string}</div>
+            <div className="mt-1 text-sm text-red-600" role="alert">{errors.email.message as string}</div>
           )}
         </div>
 
@@ -138,7 +138,7 @@ export function ContactForm() {
             className={`${inputClass(!!errors.message)} h-28`}
           />
           {errors.message && (
-            <div className="mt-1 text-sm text-red-400">{errors.message.message as string}</div>
+            <div className="mt-1 text-sm text-red-600" role="alert">{errors.message.message as string}</div>
           )}
         </div>
 
@@ -147,7 +147,7 @@ export function ContactForm() {
             <input
               type="checkbox"
               {...register("newsletter_optin")}
-              className="w-4 h-4 mt-0.5 border-gray-300 rounded accent-indigo-600 focus:ring-indigo-300"
+              className="mt-0.5 h-4 w-4 rounded border-gray-300 accent-brand-600 focus:ring-brand-300"
             />
             Send me occasional updates about Kitabu Yetu
           </label>
@@ -158,7 +158,7 @@ export function ContactForm() {
             <input
               type="checkbox"
               {...register("terms_accepted", { required: "You need to accept the Terms & Conditions to continue" })}
-              className={`w-4 h-4 mt-0.5 rounded accent-indigo-600 focus:ring-indigo-300 ${
+              className={`mt-0.5 h-4 w-4 rounded accent-brand-600 focus:ring-brand-300 ${
                 errors.terms_accepted ? "border-red-600" : "border-gray-300"
               }`}
             />
@@ -173,7 +173,7 @@ export function ContactForm() {
             </span>
           </label>
           {errors.terms_accepted && (
-            <div className="mt-1 text-sm text-red-400">
+            <div className="mt-1 text-sm text-red-600" role="alert">
               {errors.terms_accepted.message as string}
             </div>
           )}
@@ -182,7 +182,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full px-6 py-3 text-lg font-medium text-white bg-indigo-600 rounded-md focus:outline-none focus:bg-indigo-700 disabled:opacity-60"
+          className="min-h-12 w-full rounded-md bg-brand-600 px-6 py-3 text-lg font-semibold text-white transition-colors hover:bg-brand-700 focus-visible:ring-2 focus-visible:ring-brand-500 disabled:cursor-not-allowed disabled:opacity-60"
         >
           {isSubmitting ? "Sending…" : "Send Message"}
         </button>

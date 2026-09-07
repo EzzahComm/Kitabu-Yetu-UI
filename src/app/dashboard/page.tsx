@@ -8,6 +8,7 @@ import {
   IconPigMoney,
   IconBriefcase,
   IconArrowRight,
+  IconAlertTriangle,
 } from "@tabler/icons-react";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
@@ -137,6 +138,11 @@ export default function DashboardPage() {
         }
       />
 
+      <div className="mb-8 flex items-start gap-3 border-l-4 border-warning-500 bg-warning-50 px-4 py-3 text-sm text-warning-800 dark:bg-warning-900/20 dark:text-warning-200" role="status">
+        <IconAlertTriangle size={20} className="mt-0.5 flex-shrink-0" aria-hidden="true" />
+        <p><span className="font-bold">Demo workspace:</span> these figures illustrate the dashboard experience. Connect your organization to load live group data.</p>
+      </div>
+
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {kpis.map((kpi) => (
@@ -150,6 +156,29 @@ export default function DashboardPage() {
             trend={kpi.trend}
           />
         ))}
+      </div>
+
+      <div className="mb-8 grid gap-6 lg:grid-cols-2">
+        <Card variant="outlined" className="border-warning-200 bg-warning-50 dark:border-warning-800 dark:bg-warning-900/20">
+          <Card.Header>
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white">Needs attention</h2>
+          </Card.Header>
+          <Card.Content className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
+            <p className="flex items-center justify-between gap-4"><span>1 contribution is pending reconciliation</span><IconArrowRight size={16} aria-hidden="true" /></p>
+            <p className="flex items-center justify-between gap-4"><span>3 loan applications need review</span><IconArrowRight size={16} aria-hidden="true" /></p>
+            <p className="flex items-center justify-between gap-4"><span>Monthly report is ready to generate</span><IconArrowRight size={16} aria-hidden="true" /></p>
+          </Card.Content>
+        </Card>
+        <Card variant="outlined" className="border-primary-200 bg-primary-50 dark:border-primary-800 dark:bg-primary-900/20">
+          <Card.Header>
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white">Recommended next steps</h2>
+          </Card.Header>
+          <Card.Content className="grid gap-2 sm:grid-cols-2">
+            <Link href="/dashboard/members" className="rounded-md bg-white px-3 py-2 text-sm font-semibold text-primary-700 hover:bg-primary-100 dark:bg-slate-800 dark:text-primary-300 dark:hover:bg-primary-900/30">Add your members</Link>
+            <Link href="/dashboard/contributions" className="rounded-md bg-white px-3 py-2 text-sm font-semibold text-primary-700 hover:bg-primary-100 dark:bg-slate-800 dark:text-primary-300 dark:hover:bg-primary-900/30">Record a contribution</Link>
+            <Link href="/dashboard/finance/reports" className="rounded-md bg-white px-3 py-2 text-sm font-semibold text-primary-700 hover:bg-primary-100 dark:bg-slate-800 dark:text-primary-300 dark:hover:bg-primary-900/30">Create a report</Link>
+          </Card.Content>
+        </Card>
       </div>
 
       {/* Main Content Grid */}

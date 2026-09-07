@@ -25,27 +25,27 @@ export default function EnterprisePage() {
   return (
     <>
       {/* Hero */}
-      <Container className="mb-20 pt-20">
+      <Container className="mb-16 pt-12 lg:pt-20">
         <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-            One View Across
-            <span className="text-indigo-600 dark:text-indigo-400"> All Your Groups</span>
+          <p className="text-sm font-bold uppercase tracking-wider text-brand-600">Enterprise</p>
+          <h1 className="mt-3 text-4xl font-bold leading-tight tracking-tight text-brand-blue-900 dark:text-white lg:text-6xl">
+            See the whole portfolio. Support every group.
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
-            For NGOs, networks and organizations managing many groups.
-            Portfolio dashboards, multi-group reporting, and API access.
+          <p className="mx-auto mt-6 max-w-2xl text-xl leading-8 text-gray-600 dark:text-gray-400">
+            A shared operating view for NGOs, cooperatives, programmes and
+            organizations managing many community groups.
           </p>
-          <div className="flex gap-4 justify-center flex-wrap">
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-3 text-lg font-semibold text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition-colors"
+              className="inline-flex min-h-12 items-center gap-2 rounded-md bg-brand-600 px-8 py-3 text-lg font-semibold text-white transition-colors hover:bg-brand-700 focus-visible:ring-2 focus-visible:ring-brand-500"
             >
-              Contact Us
-              <span>→</span>
+              Plan your portfolio
+              <span aria-hidden="true">→</span>
             </Link>
             <Link
               href="/bookkeeper"
-              className="inline-flex items-center gap-2 px-8 py-3 text-lg font-semibold text-indigo-600 border-2 border-indigo-600 rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-colors"
+              className="inline-flex min-h-12 items-center gap-2 rounded-md border border-brand-600 px-8 py-3 text-lg font-semibold text-brand-700 transition-colors hover:bg-brand-50 focus-visible:ring-2 focus-visible:ring-brand-500 dark:border-brand-400 dark:text-brand-300 dark:hover:bg-trueGray-800"
             >
               See Bookkeeper
             </Link>
@@ -58,10 +58,23 @@ export default function EnterprisePage() {
         preTitle="The Challenge"
         title="Managing many groups is complex"
       >
-        How do you keep visibility across 10, 100, or 1000 groups? How do you know if groups
-        are using their funds well? How do you give each group independence while keeping
-        oversight at the portfolio level?
+          How do you keep visibility across 10, 100, or 1000 groups without
+          turning every group into a spreadsheet row? Enterprise keeps the
+          portfolio visible while each group keeps its own committee, members
+          and ledger.
       </SectionTitle>
+
+      <Container className="mb-20">
+        <div className="grid gap-6 border-y border-gray-200 py-8 dark:border-trueGray-700 md:grid-cols-3">
+          {portfolioView.map((item) => (
+            <div key={item.label}>
+              <p className="text-sm font-semibold uppercase tracking-wider text-brand-600">{item.label}</p>
+              <p className="mt-2 text-lg font-bold text-brand-blue-900 dark:text-white">{item.value}</p>
+              <p className="mt-1 text-sm leading-6 text-gray-600 dark:text-gray-400">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </Container>
 
       {/* Core Features */}
       <Container className="mb-20">
@@ -72,7 +85,7 @@ export default function EnterprisePage() {
           {coreFeatures.map((feature) => (
             <div
               key={feature.title}
-              className="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg"
+              className="border border-gray-200 bg-gray-50 p-6 dark:border-trueGray-700 dark:bg-gray-800"
             >
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 mt-1">
@@ -93,7 +106,7 @@ export default function EnterprisePage() {
       </Container>
 
       {/* Scale & Complexity */}
-      <Container className="mb-20 py-20 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 rounded-2xl">
+      <Container className="mb-20 border-y border-brand-200 bg-brand-50 py-16 dark:border-brand-900 dark:bg-trueGray-800/60">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">
             Scales from small to massive
@@ -101,7 +114,7 @@ export default function EnterprisePage() {
           <div className="grid md:grid-cols-3 gap-8">
             {scales.map((scale) => (
               <div key={scale.title} className="text-center">
-                <div className="text-5xl font-bold text-indigo-600 dark:text-indigo-400 mb-2">
+                <div className="mb-2 text-5xl font-bold text-brand-700 dark:text-brand-300">
                   {scale.groups}
                 </div>
                 <p className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
@@ -125,7 +138,7 @@ export default function EnterprisePage() {
           {enterpriseFeatures.map((feature, idx) => (
             <div
               key={idx}
-              className="p-8 border-l-4 border-indigo-600 bg-gray-50 dark:bg-gray-800 rounded-lg"
+              className="border-l-4 border-brand-600 bg-gray-50 p-8 dark:bg-gray-800"
             >
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0">
@@ -160,7 +173,7 @@ export default function EnterprisePage() {
           {useCases.map((useCase) => (
             <div
               key={useCase.name}
-              className="p-6 border border-gray-200 dark:border-gray-700 rounded-lg hover:shadow-lg dark:hover:shadow-lg/20 transition-shadow"
+              className="border border-gray-200 p-6 transition-colors hover:border-brand-300 dark:border-gray-700 dark:hover:border-brand-700"
             >
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                 {useCase.name}
@@ -175,7 +188,7 @@ export default function EnterprisePage() {
       </Container>
 
       {/* Pricing */}
-      <Container className="mb-20 py-20 bg-gray-900 dark:bg-gray-950 rounded-2xl text-white">
+      <Container className="mb-20 bg-brand-blue-900 py-16 text-white dark:bg-gray-950">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Pricing by Agreement</h2>
           <p className="text-lg text-gray-400 mb-8">
@@ -248,11 +261,29 @@ export default function EnterprisePage() {
         note="From project scope to implementation to training — we handle the whole journey."
         footnote="Custom pricing · Flexible terms · Dedicated support"
         primary={{ text: "Schedule a Call", href: "/contact" }}
-        secondary={{ text: "Download Spec Sheet", href: "/contact" }}
+        secondary={{ text: "Talk to the team", href: "/contact" }}
       />
     </>
   );
 }
+
+const portfolioView = [
+  {
+    label: "Organization",
+    value: "One accountable portfolio",
+    description: "Set permissions, programmes and reporting expectations once.",
+  },
+  {
+    label: "Group",
+    value: "Independent day-to-day books",
+    description: "Each committee keeps its own members, money and decisions.",
+  },
+  {
+    label: "Member",
+    value: "A record people can trust",
+    description: "Drill from a portfolio figure to the group and member activity behind it.",
+  },
+];
 
 const coreFeatures = [
   {

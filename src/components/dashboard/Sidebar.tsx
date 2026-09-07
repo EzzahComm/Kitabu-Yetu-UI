@@ -9,20 +9,9 @@ import {
   IconCoin,
   IconPigMoney,
   IconBriefcase,
-  IconHeart,
-  IconShare,
-  IconTrendingUp,
-  IconMoneybag,
   IconFileText,
   IconCalculator,
-  IconMessage,
-  IconMail,
   IconBell,
-  IconTarget,
-  IconGift,
-  IconUsersGroup,
-  IconUserCircle,
-  IconSwitchHorizontal,
   IconSettings,
   IconLogout,
 } from "@tabler/icons-react";
@@ -125,18 +114,6 @@ export function Sidebar({ open, onClose }: SidebarProps) {
                   icon={IconBriefcase}
                   label="Loans"
                 />
-                <NavLink href="/dashboard/welfare" icon={IconHeart} label="Welfare" />
-                <NavLink href="/dashboard/shares" icon={IconShare} label="Shares" />
-                <NavLink
-                  href="/dashboard/dividends"
-                  icon={IconTrendingUp}
-                  label="Dividends"
-                />
-                <NavLink
-                  href="/dashboard/investments"
-                  icon={IconMoneybag}
-                  label="Investments"
-                />
               </div>
             </div>
 
@@ -159,58 +136,6 @@ export function Sidebar({ open, onClose }: SidebarProps) {
               </div>
             </div>
 
-            {/* COMMUNICATION */}
-            <div>
-              <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase px-4 mb-3 mt-6">
-                Communication
-              </p>
-              <div className="space-y-1">
-                <NavLink
-                  href="/dashboard/communication/sms"
-                  icon={IconMessage}
-                  label="SMS"
-                />
-                <NavLink
-                  href="/dashboard/communication/email"
-                  icon={IconMail}
-                  label="Email"
-                />
-              </div>
-            </div>
-
-            {/* FUNDRAISE */}
-            <div>
-              <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase px-4 mb-3 mt-6">
-                Fundraise
-              </p>
-              <div className="space-y-1">
-                <NavLink
-                  href="/dashboard/fundraise/campaigns"
-                  icon={IconTarget}
-                  label="Campaigns"
-                />
-                <NavLink
-                  href="/dashboard/fundraise/donations"
-                  icon={IconGift}
-                  label="Donations"
-                />
-              </div>
-            </div>
-
-            {/* CRM */}
-            <div>
-              <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase px-4 mb-3 mt-6">
-                CRM
-              </p>
-              <div className="space-y-1">
-                <NavLink
-                  href="/dashboard/crm/contacts"
-                  icon={IconUsersGroup}
-                  label="Contacts"
-                />
-              </div>
-            </div>
-
             {/* ADMINISTRATION */}
             <div>
               <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase px-4 mb-3 mt-6">
@@ -228,16 +153,6 @@ export function Sidebar({ open, onClose }: SidebarProps) {
 
           {/* Footer */}
           <div className="border-t border-gray-200 dark:border-gray-700 px-3 py-4 space-y-1">
-            <NavLink
-              href="/dashboard/account"
-              icon={IconUserCircle}
-              label="Account"
-            />
-            <NavLink
-              href="/dashboard/organizations"
-              icon={IconSwitchHorizontal}
-              label="Switch Group"
-            />
             <button
               className="w-full flex items-center gap-3 px-4 py-2.5 rounded-md text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-sm font-medium"
               onClick={() => {

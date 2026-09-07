@@ -22,8 +22,25 @@ export default function ContactPage() {
         setting up looks like.
       </SectionTitle>
 
+      <Container className="mb-16">
+        <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
+          <div className="border-t-2 border-brand-600 pt-5">
+            <p className="text-sm font-bold uppercase tracking-wider text-brand-600">For groups</p>
+            <p className="mt-2 leading-7 text-gray-600 dark:text-gray-300">Tell us whether you are moving from a cash book, spreadsheet or another system.</p>
+          </div>
+          <div className="border-t-2 border-brand-600 pt-5">
+            <p className="text-sm font-bold uppercase tracking-wider text-brand-600">For organizations</p>
+            <p className="mt-2 leading-7 text-gray-600 dark:text-gray-300">Share your group count, programme structure and reporting needs for an Enterprise conversation.</p>
+          </div>
+          <div className="border-t-2 border-brand-600 pt-5">
+            <p className="text-sm font-bold uppercase tracking-wider text-brand-600">Response</p>
+            <p className="mt-2 leading-7 text-gray-600 dark:text-gray-300">We will reply with the next practical step, not a generic product brochure.</p>
+          </div>
+        </div>
+      </Container>
+
       <Container className="mb-20">
-        <div className="max-w-2xl mx-auto text-lg leading-normal text-center text-gray-500 dark:text-gray-300">
+        <div className="mx-auto max-w-2xl text-center text-lg leading-8 text-gray-600 dark:text-gray-300">
           <div className="mt-4">
             <a
               href="mailto:info@kitabuyetu.co.ke"

@@ -35,7 +35,7 @@ export const Cta = (props: Readonly<CtaProps>) => {
 
   return (
     <Container className="mb-20">
-      <div className="flex flex-wrap items-center justify-between w-full max-w-4xl gap-5 mx-auto text-white bg-indigo-600 px-7 py-7 lg:px-12 lg:py-12 lg:flex-nowrap rounded-xl">
+      <div className="mx-auto flex w-full max-w-4xl flex-wrap items-center justify-between gap-5 bg-brand-600 px-7 py-7 text-white lg:flex-nowrap lg:px-12 lg:py-12">
         <div className="flex-grow text-center lg:text-left">
           <h2 className="text-2xl font-medium lg:text-3xl">{title}</h2>
           <p className="mt-2 font-medium text-white text-opacity-90 lg:text-xl">
@@ -49,14 +49,14 @@ export const Cta = (props: Readonly<CtaProps>) => {
           <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:justify-center">
             <Link
               href={primary.href}
-              className="inline-block py-3 text-lg font-medium text-center text-indigo-600 bg-white rounded-md px-7 lg:px-10 lg:py-5 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              className="inline-flex min-h-12 items-center justify-center rounded-md bg-white px-7 py-3 text-center text-lg font-semibold text-brand-700 focus-visible:ring-2 focus-visible:ring-white lg:px-10 lg:py-5"
             >
               {primary.text}
             </Link>
             {secondary && (
               <Link
                 href={secondary.href}
-                className="inline-block py-3 text-lg font-medium text-center text-white border border-white rounded-md px-7 lg:px-10 lg:py-5 hover:bg-white hover:bg-opacity-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="inline-flex min-h-12 items-center justify-center rounded-md border border-white px-7 py-3 text-center text-lg font-semibold text-white hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white lg:px-10 lg:py-5"
               >
                 {secondary.text}
               </Link>
