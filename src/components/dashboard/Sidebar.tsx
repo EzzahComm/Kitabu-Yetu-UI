@@ -71,13 +71,14 @@ export function Sidebar({ open, onClose }: SidebarProps) {
     <>
       {/* Sidebar */}
       <div
-        className={`fixed lg:static inset-y-0 left-0 z-50 w-64 bg-white dark:bg-slate-800 border-r border-gray-200 dark:border-gray-700 transition-transform duration-300 transform ${
+        aria-label="Dashboard navigation"
+        className={`fixed inset-y-0 left-0 z-50 w-72 transform overflow-y-auto border-r border-slate-200 bg-white transition-transform duration-300 dark:border-slate-700 dark:bg-slate-800 lg:static ${
           open ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
-        } overflow-y-auto`}
+        }`}
       >
         <div className="flex flex-col h-full">
           {/* Logo */}
-          <div className="flex items-center gap-2 px-4 py-6 border-b border-gray-200 dark:border-gray-700">
+          <div className="flex items-center gap-2 border-b border-slate-200 px-5 py-6 dark:border-slate-700">
             <BrandLogo size={32} />
             <div className="hidden sm:block">
               <h1 className="text-lg font-bold text-gray-900 dark:text-white">
@@ -90,10 +91,10 @@ export function Sidebar({ open, onClose }: SidebarProps) {
           </div>
 
           {/* Navigation */}
-          <nav className="flex-1 px-3 py-6 space-y-1 overflow-y-auto">
+          <nav className="flex-1 space-y-1 overflow-y-auto px-3 py-6">
             {/* OVERVIEW */}
             <div>
-              <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase px-4 mb-3">
+              <p className="mb-3 px-4 text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                 Overview
               </p>
               <div className="space-y-1">

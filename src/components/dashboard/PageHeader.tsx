@@ -12,18 +12,18 @@ interface PageHeaderProps {
  */
 export function PageHeader({ title, description, actions }: PageHeaderProps) {
   return (
-    <div className="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+    <div className="mb-8 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
       <div>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+        <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
           {title}
         </h1>
         {description && (
-          <p className="text-gray-600 dark:text-gray-400 mt-2">
+          <p className="mt-2 max-w-2xl text-base leading-7 text-slate-600 dark:text-slate-400">
             {description}
           </p>
         )}
       </div>
-      {actions && <div className="mt-4 sm:mt-0 flex gap-3">{actions}</div>}
+      {actions && <div className="flex flex-wrap gap-3">{actions}</div>}
     </div>
   );
 }

@@ -20,7 +20,7 @@ export const ProductGrid = () => {
         {products.map((product) => (
           <div
             key={product.name}
-            className="flex flex-col p-7 bg-gray-50 rounded-2xl dark:bg-trueGray-800"
+            className="flex flex-col border border-gray-200 bg-gray-50 p-7 transition-colors hover:border-brand-300 dark:border-trueGray-700 dark:bg-trueGray-800 dark:hover:border-brand-700"
           >
             <h3 className="text-xl font-medium text-gray-800 dark:text-gray-200">
               {product.name}
@@ -34,7 +34,7 @@ export const ProductGrid = () => {
             <div className="mt-auto pt-7">
               <Link
                 href={product.cta.href}
-                className="inline-block w-full px-6 py-3 font-medium text-center text-indigo-600 bg-white border border-indigo-600 rounded-md dark:bg-trueGray-800 dark:text-indigo-400 dark:border-indigo-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300"
+                className="inline-flex min-h-12 w-full items-center justify-center rounded-md border border-brand-600 bg-white px-6 py-3 text-center font-semibold text-brand-700 transition-colors hover:bg-brand-50 focus-visible:ring-2 focus-visible:ring-brand-500 dark:border-brand-400 dark:bg-trueGray-800 dark:text-brand-300 dark:hover:bg-trueGray-700"
               >
                 {product.cta.text}
               </Link>

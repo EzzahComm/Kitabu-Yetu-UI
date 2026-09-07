@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 
@@ -9,9 +9,6 @@ import { PopupWidget }  from "@/components/PopupWidget";
 import { BackToTop } from "@/components/BackToTop";
 
 
-const inter = Inter({ subsets: ["latin"] });
-// Header wordmark only (font-display in tailwind.config.ts) — body copy
-// stays on Inter everywhere else.
 const displayFont = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -31,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} ${displayFont.variable}`}>
+      <body className={`${displayFont.variable} font-display`}>
         <ThemeProvider attribute="class">
           <Navbar />
           {/* Navbar is now `fixed`, not `sticky` — this padding is what

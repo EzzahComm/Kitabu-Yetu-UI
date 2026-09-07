@@ -25,7 +25,7 @@ import benefitTwoImg from "../../public/img/benefit-two.jpg";
 /** The punchy one-liner that closes several sections. */
 const Emphasis = ({ children }: { children: React.ReactNode }) => (
   <Container className="mb-20">
-    <p className="max-w-2xl mx-auto text-lg font-medium text-center text-gray-800 dark:text-gray-200">
+    <p className="mx-auto max-w-2xl border-l-4 border-brand-500 px-5 text-center text-lg font-semibold leading-8 text-brand-blue-900 dark:text-gray-200">
       {children}
     </p>
   </Container>
@@ -81,7 +81,7 @@ export default function Home() {
         <div className="mt-8 text-center">
           <Link
             href="/how-it-works"
-            className="inline-block px-6 py-3 text-lg font-medium text-center text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300"
+            className="inline-flex min-h-12 items-center justify-center rounded-md bg-brand-600 px-6 py-3 text-lg font-semibold text-white transition-colors hover:bg-brand-700 focus-visible:ring-2 focus-visible:ring-brand-500"
           >
             See How It Works
           </Link>
@@ -110,7 +110,7 @@ export default function Home() {
           <div className="mt-8">
             <Link
               href="/pricing"
-              className="inline-block px-6 py-3 text-lg font-medium text-center text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300"
+              className="inline-flex min-h-12 items-center justify-center rounded-md bg-brand-600 px-6 py-3 text-lg font-semibold text-white transition-colors hover:bg-brand-700 focus-visible:ring-2 focus-visible:ring-brand-500"
             >
               View Pricing
             </Link>

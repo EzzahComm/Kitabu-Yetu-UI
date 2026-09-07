@@ -89,9 +89,9 @@ export const Hero = () => {
 
   return (
     <LazyMotion features={domAnimation}>
-      <Container className="flex flex-wrap ">
-        <div className="flex items-center w-full lg:w-1/2">
-          <div className="max-w-2xl mb-8">
+      <Container className="grid items-center gap-10 py-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:py-20">
+        <div className="flex items-center">
+          <div className="max-w-2xl">
             {/* Both slides share this grid cell so the taller of the two
                 sets the box size during the crossfade — no fixed height,
                 no layout jump once the shorter one settles in. */}
@@ -104,17 +104,17 @@ export const Hero = () => {
                   exit={{ opacity: 0, y: prefersReducedMotion ? 0 : -20 }}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
                   className="col-start-1 row-start-1">
-                  <h1 className="text-4xl font-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white">
+                  <h1 className="text-4xl font-bold leading-tight tracking-tight text-brand-blue-900 lg:text-5xl lg:leading-tight xl:text-6xl dark:text-white">
                     {current.title}
                   </h1>
-                  <p className="pt-5 text-xl font-medium leading-normal text-gray-800 lg:text-xl xl:text-2xl dark:text-gray-200">
+                  <p className="max-w-xl pt-5 text-xl font-medium leading-8 text-brand-blue-900/85 dark:text-gray-200">
                     {current.subtitle}
                   </p>
                 </m.div>
               </AnimatePresence>
             </div>
 
-            <p className="py-5 text-lg leading-normal text-gray-500 lg:text-lg xl:text-xl dark:text-gray-300">
+            <p className="max-w-xl py-5 text-lg leading-8 text-gray-600 dark:text-gray-300">
               Kitabu Yetu helps chamas, welfare groups, SACCOs, investment clubs
               and community organizations manage contributions, loans, expenses,
               payments and income-generating activities — while creating access
@@ -124,12 +124,12 @@ export const Hero = () => {
             <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
               <a
                 href={signUpUrl()}
-                className="px-8 py-4 text-lg font-medium text-center text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300">
+                className="inline-flex min-h-12 items-center justify-center rounded-md bg-brand-600 px-8 py-4 text-lg font-semibold text-white transition-colors hover:bg-brand-700 focus-visible:ring-2 focus-visible:ring-brand-500">
                 Get Started
               </a>
               <Link
                 href="/contact"
-                className="px-8 py-4 text-lg font-medium text-center text-indigo-600 border border-indigo-600 rounded-md hover:bg-indigo-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300 dark:text-indigo-400 dark:border-indigo-400 dark:hover:bg-trueGray-800">
+                className="inline-flex min-h-12 items-center justify-center rounded-md border border-brand-600 px-8 py-4 text-lg font-semibold text-brand-700 transition-colors hover:bg-brand-50 focus-visible:ring-2 focus-visible:ring-brand-500 dark:border-brand-400 dark:text-brand-300 dark:hover:bg-trueGray-800">
                 Talk to Us
               </Link>
             </div>
@@ -143,8 +143,8 @@ export const Hero = () => {
             </p>
           </div>
         </div>
-        <div className="flex items-center justify-center w-full lg:w-1/2">
-          <div className="grid">
+        <div className="flex items-center justify-center">
+          <div className="grid w-full max-w-xl overflow-hidden rounded-md bg-brand-50 shadow-sm dark:bg-trueGray-800">
             <AnimatePresence>
               <m.div
                 key={current.id}
@@ -152,12 +152,13 @@ export const Hero = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: prefersReducedMotion ? 0 : -40 }}
                 transition={{ duration: 0.6, ease: [0.32, 0.94, 0.6, 1] }}
-                className="col-start-1 row-start-1">
+                  className="col-start-1 row-start-1 aspect-[4/3]">
                 <Image
                   src={current.image}
                   width={current.image.width}
                   height={current.image.height}
-                  className={"object-cover"}
+                  className="h-full w-full object-cover"
+                  sizes="(max-width: 1023px) 100vw, 48vw"
                   alt={current.imageAlt}
                   loading="eager"
                   placeholder="blur"
@@ -168,7 +169,7 @@ export const Hero = () => {
         </div>
       </Container>
 
-      <Container className="mb-20">
+      <Container className="mb-20 pt-0">
         <div className="flex flex-col justify-center">
           <div className="text-xl text-center text-gray-700 dark:text-white">
             Built for Kenyan groups, on{" "}
