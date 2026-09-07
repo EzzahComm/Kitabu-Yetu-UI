@@ -66,6 +66,7 @@ export const company: NavItem[] = [
   { name: "Our Story", href: "/about#our-story" },
   { name: "Team", href: "/about#team" },
   { name: "Impact", href: "/about#impact" },
+  { name: "Careers", href: "/careers" },
   { name: "How it works", href: "/how-it-works" },
   { name: "Pricing", href: "/pricing" },
   { name: "Contact", href: "/contact" },
