@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   IconBuildingCommunity,
-  IconCheckCircle,
+  IconCircleCheck,
   IconTrendingUp,
   IconUsers,
   IconShieldCheck,

@@ -5,7 +5,7 @@ import {
   IconCalendarDots,
   IconUsers,
   IconPhone,
-  IconCheckCircle,
+  IconCircleCheck,
   IconTrendingUp,
   IconBell,
   IconClock,
@@ -179,7 +179,7 @@ export default function ChamaReminderPage() {
                     key={feature}
                     className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400"
                   >
-                    <IconCheckCircle
+                    <IconCircleCheck
                       size={18}
                       className="flex-shrink-0 mt-0.5 text-indigo-600 dark:text-indigo-400"
                     />
@@ -261,7 +261,7 @@ const coreFeatures = [
   {
     title: "Delivery Tracking",
     description: "See which messages were delivered, read failure reports and retry failed sends.",
-    icon: <IconCheckCircle size={24} className="text-indigo-600 dark:text-indigo-400" />,
+    icon: <IconCircleCheck size={24} className="text-indigo-600 dark:text-indigo-400" />,
   },
   {
     title: "Simple Pricing",

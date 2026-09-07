@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   IconHeart,
-  IconCheckCircle,
+  IconCircleCheck,
   IconTrendingUp,
   IconUsers,
   IconGift,
@@ -184,7 +184,7 @@ export default function FundraisePage() {
             <ul className="space-y-4">
               {leaderFeatures.map((feature) => (
                 <li key={feature} className="flex items-start gap-3">
-                  <IconCheckCircle size={24} className="text-indigo-600 dark:text-indigo-400 flex-shrink-0 mt-0.5" />
+                  <IconCircleCheck size={24} className="text-indigo-600 dark:text-indigo-400 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-600 dark:text-gray-400">{feature}</span>
                 </li>
               ))}
@@ -197,7 +197,7 @@ export default function FundraisePage() {
             <ul className="space-y-4">
               {donorFeatures.map((feature) => (
                 <li key={feature} className="flex items-start gap-3">
-                  <IconCheckCircle size={24} className="text-indigo-600 dark:text-indigo-400 flex-shrink-0 mt-0.5" />
+                  <IconCircleCheck size={24} className="text-indigo-600 dark:text-indigo-400 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-600 dark:text-gray-400">{feature}</span>
                 </li>
               ))}
@@ -233,7 +233,7 @@ const coreFeatures = [
   {
     title: "Donor Receipts",
     description: "Automatic receipts sent to donors via SMS or email. Professional and transparent.",
-    icon: <IconCheckCircle size={24} className="text-indigo-600 dark:text-indigo-400" />,
+    icon: <IconCircleCheck size={24} className="text-indigo-600 dark:text-indigo-400" />,
   },
   {
     title: "Progress Tracking",

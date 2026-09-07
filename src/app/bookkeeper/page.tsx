@@ -8,7 +8,7 @@ import {
   IconTrendingUp,
   IconFileText,
   IconLock,
-  IconCheckCircle,
+  IconCircleCheck,
 } from "@tabler/icons-react";
 
 import { Hero } from "@/components/Hero";
@@ -164,7 +164,7 @@ export default function BookkeeperPage() {
                     key={feature}
                     className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400"
                   >
-                    <IconCheckCircle
+                    <IconCircleCheck
                       size={18}
                       className="flex-shrink-0 mt-0.5 text-indigo-600 dark:text-indigo-400"
                     />
