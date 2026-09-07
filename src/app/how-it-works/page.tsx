@@ -27,23 +27,15 @@ export default function HowItWorksPage() {
     <>
       <SectionTitle
         preTitle="How it works"
-        title="From M-Pesa to your books, in one motion"
+        title="From member activity to a record the group can trust"
         titleAs="h1"
       >
-        The payment and the record of the payment are the same event. Nobody
-        retypes anything, and nobody reconciles a statement the night before the
-        meeting.
+        Members pay, officials review and the ledger keeps the history. The
+        platform connects payments, communication and reporting so the group
+        can spend its meetings making decisions instead of rebuilding records.
       </SectionTitle>
 
       <Benefits data={theFlow} />
-
-      <SectionTitle
-        preTitle="Watch it happen"
-        title="A contribution posted end to end"
-      >
-        From the payment to the member&apos;s updated balance and the journal
-        entry behind it — the whole path in a couple of minutes.
-      </SectionTitle>
 
       <Video videoId="fZ0D0cnR88E" />
 

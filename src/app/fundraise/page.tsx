@@ -28,20 +28,20 @@ export default function FundraisePage() {
       {/* Hero */}
       <Container className="mb-20 pt-20">
         <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-            Turn Community Ideas
-            <span className="text-indigo-600 dark:text-indigo-400"> Into Action</span>
+          <p className="text-sm font-bold uppercase tracking-wider text-brand-600">Fundraise / Changi$ha</p>
+          <h1 className="mt-3 text-4xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white lg:text-6xl">
+            Give every community project a clear campaign.
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
-            Dedicated fundraising campaigns for groups, projects and community initiatives.
-            Transparent tracking from first donation to group bank account.
+          <p className="mx-auto mt-6 max-w-2xl text-xl leading-8 text-gray-600 dark:text-gray-400">
+            Set a target, invite donors, track progress and keep campaign money
+            separate from the group&apos;s ordinary contributions.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <Link
               href="/contact"
               className="inline-flex items-center gap-2 px-8 py-3 text-lg font-semibold text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition-colors"
             >
-              Start Fundraising
+              Create a campaign
               <span>→</span>
             </Link>
             <Link

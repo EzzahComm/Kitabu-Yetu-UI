@@ -28,12 +28,13 @@ export default function EcosystemPage() {
     <>
       <SectionTitle
         preTitle="Ecosystem"
-        title="A group is rarely on its own"
+        title="Build the relationships around the group"
         titleAs="h1"
       >
-        Behind most groups sits a funder, a network or a programme that needs to
-        know the money landed where it was meant to. They read the same ledger
-        the group keeps, rather than a report assembled after the fact.
+        A group grows stronger when its records can open the right doors:
+        funding, training, financial products, professional support and markets.
+        Kitabu Yetu connects those relationships without taking the group&apos;s
+        own book away from it.
       </SectionTitle>
 
       <div id="donors">

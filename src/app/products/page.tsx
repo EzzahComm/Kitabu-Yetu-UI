@@ -33,12 +33,13 @@ export default function ProductsPage() {
     <>
       <SectionTitle
         preTitle="Products"
-        title="Start where your group is, not where the software wants it"
+        title="Four ways to help a community group move forward"
         titleAs="h1"
       >
-        Take the full book, or take the messaging on its own and add the book
-        later. Whichever you start with, your group, your members and their
-        history carry over unchanged.
+        Start with the job in front of you: manage the group, keep members
+        connected, fund a project or coordinate a portfolio of groups. The
+        products share one Kitabu Yetu ecosystem, so your group history does
+        not have to start over.
       </SectionTitle>
 
       <div id="bookkeeper">

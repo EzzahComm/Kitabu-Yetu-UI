@@ -7,6 +7,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PopupWidget }  from "@/components/PopupWidget";
 import { BackToTop } from "@/components/BackToTop";
+import { officialAppUrl } from "@/lib/app-links";
 
 
 const displayFont = Plus_Jakarta_Sans({
@@ -16,9 +17,13 @@ const displayFont = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(officialAppUrl),
   title: "Kitabu Yetu — Bookkeeping for CHAMAs and SACCOs",
   description:
     "Kitabu Yetu keeps members, contributions, loans, welfare and M-Pesa on one double-entry ledger for savings groups across East Africa.",
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({

@@ -16,10 +16,8 @@ import heroOneImg from "../../public/img/hero-one.jpg";
 import heroTwoImg from "../../public/img/hero-two.jpg";
 
 /**
- * The two pitches the hero rotates between. Copy for the second slide is
- * lifted verbatim from the `benefitTwo` entry in data.js, so nothing here is
- * a new marketing claim — it's the same line the page already makes further
- * down, just surfaced earlier.
+ * The four product pillars rotate through the home hero so the platform is
+ * immediately legible as an ecosystem, not a generic bookkeeping product.
  *
  * Images are real photos, licensed for commercial use with no attribution
  * required — kept here for provenance:
@@ -31,24 +29,44 @@ import heroTwoImg from "../../public/img/hero-two.jpg";
  */
 const HERO_MESSAGES = [
   {
-    id: "run-your-group",
-    title: "Run your group. Grow its potential.",
+    id: "bookkeeper",
+    product: "Bookkeeper",
+    title: "Keep the whole group book in one place.",
     subtitle:
-      "Manage your members, money, investments and communication in one simple platform.",
+      "Members, contributions, savings, loans, welfare and M-Pesa on one reliable record.",
     image: heroOneImg,
     imageAlt: "A group of women meeting together, laughing and talking",
   },
   {
-    id: "savings-pot",
-    title: "More than a savings pot",
+    id: "chama-reminder",
+    product: "Chama Reminder",
+    title: "Keep every member in the conversation.",
     subtitle:
-      "The group keeps its members informed, puts its money to work, and lets every member check their own record without waiting for a meeting.",
+      "Send contribution reminders, meeting notices and updates by SMS, without rebuilding your list.",
     image: heroTwoImg,
     imageAlt: "A woman smiling while checking her phone",
   },
+  {
+    id: "fundraise",
+    product: "Fundraise / Changi$ha",
+    title: "Turn a shared idea into a funded project.",
+    subtitle:
+      "Create a campaign, track every contribution and keep project money separate from ordinary group funds.",
+    image: heroOneImg,
+    imageAlt: "Community members meeting around a shared project",
+  },
+  {
+    id: "enterprise",
+    product: "Enterprise",
+    title: "See the portfolio. Support every group.",
+    subtitle:
+      "Give organizations one accountable view across programmes, groups, members and financial activity.",
+    image: heroTwoImg,
+    imageAlt: "A community leader reviewing information on a phone",
+  },
 ] as const;
 
-const ROTATION_MS = 6000;
+const ROTATION_MS = 3500;
 
 export const Hero = () => {
   const [index, setIndex] = useState(0);
@@ -63,7 +81,7 @@ export const Hero = () => {
 
     const start = () => {
       timer = setInterval(() => {
-        setIndex((prev) => (prev === 0 ? 1 : 0));
+        setIndex((prev) => (prev + 1) % HERO_MESSAGES.length);
       }, ROTATION_MS);
     };
     const stop = () => {
@@ -104,6 +122,7 @@ export const Hero = () => {
                   exit={{ opacity: 0, y: prefersReducedMotion ? 0 : -20 }}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
                   className="col-start-1 row-start-1">
+                  <p className="mb-3 text-sm font-bold uppercase tracking-wider text-brand-600">{current.product}</p>
                   <h1 className="text-4xl font-bold leading-tight tracking-tight text-brand-blue-900 lg:text-5xl lg:leading-tight xl:text-6xl dark:text-white">
                     {current.title}
                   </h1>
@@ -115,10 +134,9 @@ export const Hero = () => {
             </div>
 
             <p className="max-w-xl py-5 text-lg leading-8 text-gray-600 dark:text-gray-300">
-              Kitabu Yetu helps chamas, welfare groups, SACCOs, investment clubs
-              and community organizations manage contributions, loans, expenses,
-              payments and income-generating activities — while creating access
-              to opportunities that can help them grow.
+              Kitabu Yetu helps chamas, VSLAs, welfare groups, cooperatives and
+              community organizations manage themselves, grow their track record
+              and access useful opportunities.
             </p>
 
             <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">

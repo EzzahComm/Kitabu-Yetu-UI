@@ -1,11 +1,12 @@
 /**
- * Links into the Kitabu Yetu app, which is a separate deployment from this
- * marketing site. Override the host with NEXT_PUBLIC_APP_URL (see .env.example)
- * if the app moves or you need to point a preview build at staging.
+ * Official Kitabu Yetu product URL. Override the host with NEXT_PUBLIC_APP_URL
+ * for a preview or staging deployment.
  */
 const APP_URL = (
   process.env.NEXT_PUBLIC_APP_URL ?? "https://kitabuyetu.co.ke"
 ).replace(/\/$/, "");
+
+export const officialAppUrl = APP_URL;
 
 /**
  * The app's /register page reads ?product= and understands exactly two values,

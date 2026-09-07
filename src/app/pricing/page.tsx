@@ -15,18 +15,12 @@ export default function PricingPage() {
     <>
       <SectionTitle
         preTitle="Pricing"
-        title="One price a month, for the whole group"
+        title="Start with the product your group needs today"
         titleAs="h1"
       >
-        Two products, one bill. Take the full book with Kitabu Yetu, or SMS
-        reminders on their own with Chama Reminder. Every price below is the
-        price the system actually charges.
-      </SectionTitle>
-
-      <Pricing />
-
-      <SectionTitle preTitle="FAQ" title="Frequently Asked Questions">
-        What treasurers, chairpersons and NGO coordinators ask us most often.
+        Choose Bookkeeper for the full group record or Chama Reminder for
+        communication on its own. Every price below is for the whole group, not
+        per member, with room to add capability as the group grows.
       </SectionTitle>
 
       <Faq />
